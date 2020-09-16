@@ -1,0 +1,1 @@
+require("recipe-updates")

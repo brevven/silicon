@@ -9,6 +9,6 @@
     "dependencies": [
 	    "base >= 0.18"
     ],
-    "description": "Adds simple Silica and Silicon to the game."
+    "description": "Adds simple Silica and Silicon to the game, along with basic fiber optics."
 }
 
