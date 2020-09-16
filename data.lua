@@ -1,3 +1,3 @@
-require("silica-recipe")
-require("silicon-recipe")
+require("prototypes/silica-recipe")
+require("prototypes/silicon-recipe")
 
