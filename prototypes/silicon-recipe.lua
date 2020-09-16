@@ -29,7 +29,7 @@ data:extend(
     icon = "__bzsilicon__/graphics/icons/silicon.png",
     icon_size = 64,
     subgroup = "raw-material",
-    order = "b[silica]",
+    order = "b[silicon]",
     stack_size = 100
   },
   {
