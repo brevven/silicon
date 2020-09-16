@@ -1,0 +1,14 @@
+{
+    "name": "bzsilicon",
+    "version": "0.1.0",
+    "factorio_version": "1.0",
+    "title": "Silica & Silicon",
+    "author": "Brevven",
+    "contact": "",
+    "homepage": "",
+    "dependencies": [
+	    "base >= 0.18"
+    ],
+    "description": "Adds simple Silica and Silicon to the game."
+}
+
