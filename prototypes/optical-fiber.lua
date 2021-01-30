@@ -1,4 +1,5 @@
 -- Optical Fiber
+local util = require("__bzsilicon__.util");
 data:extend(
 {
   {
@@ -8,7 +9,7 @@ data:extend(
     icon_size = 32,
     subgroup = "intermediate-product",
     order = "a[optical-fiber]",
-    stack_size = 200
+    stack_size = util.get_stack_size(200)
   },
   {
     type = "recipe",
@@ -34,8 +35,8 @@ data:extend(
     name = "fiber-optics",
     icons =
     {
-      { icon = "__base__/graphics/technology/optics.png", icon_size = 128 },
-      { icon = "__bzsilicon__/graphics/icons/optical-fiber.png", icon_size = 32, scale=1.5, shift={32,-48} },
+      { icon = "__base__/graphics/technology/optics.png", icon_size = 256 },
+      { icon = "__bzsilicon__/graphics/icons/optical-fiber.png", icon_size = 32, scale=3, shift={32,-48} },
     },
     effects =
     {

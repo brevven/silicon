@@ -1,12 +1,13 @@
 {
     "name": "bzsilicon",
-    "version": "0.2.0",
+    "version": "0.3.0",
     "factorio_version": "1.1",
     "title": "Silica & Silicon",
     "author": "Brevven",
     "contact": "",
     "homepage": "",
     "dependencies": [
+      "? Krastorio2",
 	    "base >= 0.18"
     ],
     "description": "Adds simple Silica and Silicon to the game, along with basic fiber optics."

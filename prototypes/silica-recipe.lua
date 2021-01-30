@@ -1,7 +1,17 @@
 -- Silica
+local util = require("__bzsilicon__.util");
 data:extend(
 {
-  {
+  mods["Krastorio2"] and {
+    type = "recipe",
+    name = "silica",
+    category = "crushing",
+    enabled = false,
+    energy_required = 4,
+    ingredients = {{"quartz", 10}},
+    result = "silica",
+    result_count = 30
+  } or {
     type = "recipe",
     name = "silica",
     category = "smelting",
@@ -30,9 +40,36 @@ data:extend(
     icon_size = 64,
     subgroup = "raw-material",
     order = "b[silica]",
-    stack_size = 100
+    stack_size = util.get_stack_size(100)
   },
-  {
+  mods["Krastorio2"] and {
+    type = "technology",
+    name = "silica-processing",
+    icon_size = 128,
+    icon = "__bzsilicon__/graphics/icons/silica-processing.png",
+    effects =
+    {
+      {
+        type = "unlock-recipe",
+        recipe = "silica"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "quartz"
+      },
+    },
+    prerequisites = {"kr-fluids-chemistry"},
+    unit =
+    {
+      count = 10,
+      ingredients =
+      {
+        {"automation-science-pack", 1},
+      },
+      time = 30
+    },
+    order = "b-b"
+  } or {
     type = "technology",
     name = "silica-processing",
     icon_size = 128,
