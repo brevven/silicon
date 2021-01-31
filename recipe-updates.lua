@@ -17,7 +17,7 @@ if not mods["Krastorio2"] then
   util.add_prerequisite("modules", util.silicon_processing)
 else
   util.remove_ingredient("concrete", "stone-brick");
-  if not mods["space-exploration"] then
+  if not mods["aai-industry"] then
     util.add_ingredient("concrete", "sand", 25);
   end
 end
