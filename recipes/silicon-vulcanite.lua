@@ -1,4 +1,5 @@
 if mods["space-exploration"] then
+  se_delivery_cannon_recipes["silica"] = {name= "silica"}
   if mods["Krastorio2"] then
     recipe = data.raw.recipe["silicon-vulcanite"]
     recipe.ingredients = {
@@ -8,6 +9,7 @@ if mods["space-exploration"] then
     recipe.result_count=6
     recipe.energy_required=21.6
   else
+    se_delivery_cannon_recipes["silicon"] = {name= "silicon"}
     data:extend({
     {
       type = "recipe",
