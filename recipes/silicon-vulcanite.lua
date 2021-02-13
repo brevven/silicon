@@ -6,8 +6,10 @@ if mods["space-exploration"] then
       {"silica", 18},
       {"se-vulcanite-block", 1}
     }
-    recipe.result_count=6
     recipe.energy_required=21.6
+    recipe.results = {
+      {name = "silicon", amount = 6},
+    }
   else
     se_delivery_cannon_recipes["silicon"] = {name= "silicon"}
     data:extend({
