@@ -16,15 +16,14 @@ if not mods["Krastorio2"] then
   util.replace_ingredient("speed-module", "electronic-circuit", "silicon")
   util.add_prerequisite("modules", util.silicon_processing)
 else
-  util.remove_ingredient("concrete", "stone-brick");
+  util.add_ingredient("concrete", "silica", 15);
   if not mods["aai-industry"] then
-    util.add_ingredient("concrete", "sand", 25);
+    util.add_ingredient("concrete", "sand", 10);
   end
 end
 
 util.replace_ingredient("beacon", "copper-cable", "optical-fiber")
 util.add_prerequisite("effect-transmission", "fiber-optics")
-
 
 -- Circuit network changes
 util.replace_ingredient("green-wire", "copper-cable", "optical-fiber")

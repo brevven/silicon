@@ -1,8 +1,16 @@
 ---------------------------------------------------------------------------------------------------
+Version: 0.3.4
+Date: 2021-01-31
+  Changes:
+    - Concrete will always try to keep stone brick in some step of the chain.
+      Concrete will also use sand where possible. I.e concrete "realism".
+      This may be further adjusted but these goals will remain.
+---------------------------------------------------------------------------------------------------
 Version: 0.3.3
 Date: 2021-01-31
   Changes:
     - SE Delivery cannon capsules
+    - K2 Silica matter
 ---------------------------------------------------------------------------------------------------
 Version: 0.3.2
 Date: 2021-01-30
