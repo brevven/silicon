@@ -40,6 +40,7 @@ data:extend(
     },
     
   },
+  (not mods["Krastorio2"]) and 
   {
     type = "item",
     name = "silicon",
@@ -48,7 +49,7 @@ data:extend(
     subgroup = "raw-material",
     order = "b[silicon]",
     stack_size = util.get_stack_size(100)
-  },
+  } or nil,
   (not mods["Krastorio2"]) and 
   {
     type = "technology",
