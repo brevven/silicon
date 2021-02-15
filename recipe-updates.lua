@@ -31,13 +31,18 @@ util.replace_ingredient("green-wire", "electronic-circuit", "silicon")
 util.replace_ingredient("red-wire", "copper-cable", "optical-fiber")
 util.replace_ingredient("red-wire", "electronic-circuit", "silicon")
 
-util.add_ingredient("arithmetic-combinator", "silicon", 1);
-util.add_ingredient("arithmetic-combinator", "optical-fiber", 1);
-util.add_ingredient("constant-combinator", "silicon", 1);
-util.add_ingredient("constant-combinator", "optical-fiber", 1);
-util.add_ingredient("decider-combinator", "silicon", 1);
-util.add_ingredient("decider-combinator", "optical-fiber", 1);
-util.add_ingredient("programmable-speaker", "optical-fiber", 1);
+if not mods["IndustrialRevolution"] then
+  util.add_ingredient("arithmetic-combinator", "silicon", 1)
+  util.add_ingredient("constant-combinator", "silicon", 1)
+  util.add_ingredient("decider-combinator", "silicon", 1)
+else
+  util.add_prerequisite("circuit-network", "fiber-optics")
+end
+
+util.add_ingredient("arithmetic-combinator", "optical-fiber", 1)
+util.add_ingredient("constant-combinator", "optical-fiber", 1)
+util.add_ingredient("decider-combinator", "optical-fiber", 1)
+util.add_ingredient("programmable-speaker", "optical-fiber", 1)
 
 util.add_prerequisite("circuit-network", "fiber-optics")
 util.add_prerequisite("circuit-network", util.silicon_processing)

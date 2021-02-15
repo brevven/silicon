@@ -37,6 +37,11 @@ end
 
 function add_ingredient(recipe, ingredient, quantity)
   if recipe ~= nil and recipe.ingredients ~= nil then
+    for _, existing in ipairs(recipe.ingredients) do 
+      if ingredient == existing.name or ingredient == existing[1] then
+        return
+      end
+    end
     table.insert(recipe.ingredients, {ingredient, quantity})
   end
 end
