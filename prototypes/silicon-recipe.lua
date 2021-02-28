@@ -67,7 +67,6 @@ data:extend(
         type = "unlock-recipe",
         recipe = "silicon-wafer",
       } or nil,
-    
     },
     unit =
     {
@@ -93,6 +92,7 @@ data:extend({
     icon_size = "64",
     subgroup = "intermediate-product",
     stack_size = util.get_stack_size(100),
+    order = "s[silicon]-silicon-wafer",
   },
   {
     type = "recipe",
@@ -110,6 +110,33 @@ data:extend({
     }),
     result = "silicon-wafer",
     result_count = 10,
+  },
+  {
+    type = "item",
+    name = "solar-cell",
+    icon = "__bzsilicon__/graphics/icons/solar-cell.png",
+    icon_size = "128",
+    subgroup = "intermediate-product",
+    stack_size = util.get_stack_size(100),
+    order = "s[silicon]-solar-cell",
+  },
+  {
+    type = "recipe",
+    name = "solar-cell",
+    category = "crafting-with-fluid",
+    subgroup = "intermediate-product",
+    enabled = false,
+    energy_required = 2,
+    ingredients = (mods["bzlead"] and {
+      {type= "item", name="silicon", amount=2},
+      {type= "item", name="electronic-circuit", amount=1},
+      {type= "item", name="lead-plate", amount=1},
+    } or {
+      {type= "item", name="silicon", amount=2},
+      {type= "item", name="electronic-circuit", amount=1},
+    }),
+    result = "solar-cell",
+    result_count = 2,
   },
 })
 end

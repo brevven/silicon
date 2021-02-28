@@ -5,15 +5,26 @@ if not mods["Krastorio2"] then
   util.add_ingredient("concrete", "silica", 25);
   util.add_prerequisite("concrete", "silica-processing")
 
-  util.replace_some_ingredient("processing-unit", "electronic-circuit", 10, "silicon-wafer", 5)
-  util.add_prerequisite("advanced-electronics-2", util.silicon_processing)
+  if util.more_intermediates() then 
+    util.replace_some_ingredient("processing-unit", "electronic-circuit", 10, "silicon-wafer", 5)
+    util.replace_ingredient("effectivity-module", "electronic-circuit", "silicon-wafer")
+    util.replace_ingredient("productivity-module", "electronic-circuit", "silicon-wafer")
+    util.replace_ingredient("speed-module", "electronic-circuit", "silicon-wafer")
 
-  util.replace_some_ingredient("solar-panel", "electronic-circuit", 10, "silicon", 10)
+    util.replace_ingredient("solar-panel", "electronic-circuit", "solar-cell")
+    util.replace_ingredient("solar-panel-equipment", "solar-panel", "solar-cell")
+    util.add_effect("solar-energy", {type = "unlock-recipe", recipe="solar-cell"})
+  else
+    util.replace_some_ingredient("solar-panel", "electronic-circuit", 10, "silicon", 10)
+
+    util.replace_some_ingredient("processing-unit", "electronic-circuit", 10, "silicon", 10)
+    util.replace_ingredient("effectivity-module", "electronic-circuit", "silicon")
+    util.replace_ingredient("productivity-module", "electronic-circuit", "silicon")
+    util.replace_ingredient("speed-module", "electronic-circuit", "silicon")
+  end
+
   util.add_prerequisite("solar-energy", "silicon-processing")
-
-  util.replace_ingredient("effectivity-module", "electronic-circuit", "silicon-wafer")
-  util.replace_ingredient("productivity-module", "electronic-circuit", "silicon-wafer")
-  util.replace_ingredient("speed-module", "electronic-circuit", "silicon-wafer")
+  util.add_prerequisite("advanced-electronics-2", util.silicon_processing)
   util.add_prerequisite("modules", util.silicon_processing)
 else
   util.add_ingredient("concrete", "silica", 15);
@@ -52,10 +63,16 @@ if mods["Krastorio2"] then
   util.add_ingredient("ai-core", "optical-fiber", 2)
 
   util.add_prerequisite(util.silicon_processing, "silica-processing")
+
   if util.more_intermediates() then 
     util.add_effect(util.silicon_processing, {type = "unlock-recipe", recipe="silicon-wafer"})
     util.remove_ingredient("electronic-components", "silicon")
     util.add_ingredient("electronic-components", "silicon-wafer", 1)
+
+    util.replace_ingredient("solar-panel", "electronic-circuit", "solar-cell")
+    util.remove_ingredient("solar-panel", "silicon")
+    util.replace_ingredient("solar-panel-equipment", "solar-panel", "solar-cell")
+    util.add_effect("solar-energy", {type = "unlock-recipe", recipe="solar-cell"})
   end
 end
 

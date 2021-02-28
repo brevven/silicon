@@ -2,7 +2,7 @@
 Version: 0.4.0
 Date: 2021-02-27
   Features:
-    - New optional intermediates: Silicon wafer
+    - New optional intermediates: Silicon wafer & Solar cell.
 ---------------------------------------------------------------------------------------------------
 Version: 0.3.7
 Date: 2021-02-15
