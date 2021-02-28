@@ -2,6 +2,17 @@ local util = {}
 
 util.silicon_processing = mods["Krastorio2"] and "kr-silicon-processing" or "silicon-processing"
 
+function util.get_setting(name)
+  if settings.startup[name] == nil then
+    return nil
+  end
+  return settings.startup[name].value
+end
+
+function util.more_intermediates()
+  return mods["Bio_Industries"] or util.get_setting("bzsilicon-more-intermediates") == "yes"
+end
+
 function util.get_stack_size(default) 
   if mods["Krastorio2"] then
     size = tonumber(krastorio.general.getSafeSettingValue("kr-stack-size"))
@@ -92,26 +103,32 @@ end
 
 
 -- Replace an amount of an ingredient in a recipe. Keep at least 1 of old.
-function util.replace_some_ingredient(recipe_name, old, new, amount)
-  replace_some_ingredient(data.raw.recipe[recipe_name], old, new, amount)
-  replace_some_ingredient(data.raw.recipe[recipe_name].normal, old, new, amount)
-  replace_some_ingredient(data.raw.recipe[recipe_name].expensive, old, new, amount)
+function util.replace_some_ingredient(recipe_name, old, old_amount, new, new_amount)
+  replace_some_ingredient(data.raw.recipe[recipe_name], old, old_amount, new, new_amount)
+  replace_some_ingredient(data.raw.recipe[recipe_name].normal, old, old_amount, new, new_amount)
+  replace_some_ingredient(data.raw.recipe[recipe_name].expensive, old, old_amount, new, new_amount)
 end
 
-function replace_some_ingredient(recipe, old, new, amount)
+function replace_some_ingredient(recipe, old, old_amount, new, new_amount)
 	if recipe ~= nil and recipe.ingredients ~= nil then
 		for i, ingredient in pairs(recipe.ingredients) do 
-			-- For final fixes
 			if ingredient.name == old then
-        ingredient.amount = math.max(1, ingredient.amount - amount)
+        ingredient.amount = math.max(1, ingredient.amount - old_amount)
       end
-			-- For updates
 			if ingredient[1] == old then
-        ingredient[2] = math.max(1, ingredient[2] - amount)
+        ingredient[2] = math.max(1, ingredient[2] - old_amount)
       end
 		end
-    add_ingredient(recipe, new, amount)
+    add_ingredient(recipe, new, new_amount)
 	end
+end
+
+-- Add an effect to a given technology
+function util.add_effect(technology_name, effect)
+  technology = data.raw.technology[technology_name]
+  if technology then
+    table.insert(technology.effects, effect)
+  end
 end
 
 return util

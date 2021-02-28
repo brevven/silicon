@@ -60,8 +60,14 @@ data:extend(
     {
       {
         type = "unlock-recipe",
-        recipe = "silicon"
-      }
+        recipe = "silicon",
+      },
+      util.more_intermediates() and
+      {
+        type = "unlock-recipe",
+        recipe = "silicon-wafer",
+      } or nil,
+    
     },
     unit =
     {
@@ -78,3 +84,32 @@ data:extend(
   } or nil,
 }
 )
+if util.more_intermediates() then
+data:extend({
+  {
+    type = "item",
+    name = "silicon-wafer",
+    icon = "__bzsilicon__/graphics/icons/silicon-wafer.png",
+    icon_size = "64",
+    subgroup = "intermediate-product",
+    stack_size = util.get_stack_size(100),
+  },
+  {
+    type = "recipe",
+    name = "silicon-wafer",
+    category = "crafting-with-fluid",
+    subgroup = "intermediate-product",
+    enabled = false,
+    energy_required = 20,
+    ingredients = (mods["Krastorio2"] and {
+      {type= "item", name="silicon", amount=20},
+      {type= "fluid", name="hydrogen-chloride", amount=50},
+    } or {
+      {type= "item", name="silicon", amount=20},
+      {type= "fluid", name="sulfuric-acid", amount=50},
+    }),
+    result = "silicon-wafer",
+    result_count = 10,
+  },
+})
+end
