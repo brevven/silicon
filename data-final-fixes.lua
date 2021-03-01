@@ -1,1 +1,1 @@
--- require("silicon-recipe-final")
+require("deadlock-stacking")
