@@ -2,14 +2,14 @@
 local util = require("__bzsilicon__.util");
 
 if deadlock then
-  deadlock.add_stack("silica", "__bzsilicon__/graphics/icons/silica-stacked.png" , "deadlock-stacking-1", 64)
-  deadlock.add_stack("optical-fiber", "__bzsilicon__/graphics/icons/optical-fiber-stacked.png" , "deadlock-stacking-2", 32)
+  deadlock.add_stack("silica", "__bzsilicon__/graphics/icons/stacked/silica-stacked.png" , "deadlock-stacking-1", 64)
+  deadlock.add_stack("optical-fiber", "__bzsilicon__/graphics/icons/stacked/optical-fiber-stacked.png" , "deadlock-stacking-2", 64)
   if not mods["Krastorio2"] then
-    deadlock.add_stack("silicon", "__bzsilicon__/graphics/icons/silicon-stacked.png" , "deadlock-stacking-2", 64)
+    deadlock.add_stack("silicon", "__bzsilicon__/graphics/icons/stacked/silicon-stacked.png" , "deadlock-stacking-2", 64)
   end
   if util.more_intermediates() then
-    deadlock.add_stack("silicon-wafer", "__bzsilicon__/graphics/icons/silicon-wafer-stacked.png" , "deadlock-stacking-2", 64)
-    deadlock.add_stack("solar-cell", "__bzsilicon__/graphics/icons/solar-cell-stacked.png" , "deadlock-stacking-2", 64)
+    deadlock.add_stack("silicon-wafer", "__bzsilicon__/graphics/icons/stacked/silicon-wafer-stacked.png" , "deadlock-stacking-2", 64)
+    deadlock.add_stack("solar-cell", "__bzsilicon__/graphics/icons/stacked/solar-cell-stacked.png" , "deadlock-stacking-2", 64)
   end
 end
 

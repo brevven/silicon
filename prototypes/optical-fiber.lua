@@ -6,7 +6,7 @@ data:extend(
     type = "item",
     name = "optical-fiber",
     icon = "__bzsilicon__/graphics/icons/optical-fiber.png",
-    icon_size = 32,
+    icon_size = 64, icon_mipmaps = 3,
     subgroup = "intermediate-product",
     order = "a[optical-fiber]",
     stack_size = util.get_stack_size(200)
@@ -33,11 +33,8 @@ data:extend(
   {
     type = "technology",
     name = "fiber-optics",
-    icons =
-    {
-      { icon = "__base__/graphics/technology/optics.png", icon_size = 256 },
-      { icon = "__bzsilicon__/graphics/icons/optical-fiber.png", icon_size = 32, scale=3, shift={32,-48} },
-    },
+    icon = "__bzsilicon__/graphics/technology/optical-fiber-tech.png",
+    icon_size = 256, icon_mipmaps = 4,
     effects =
     {
       {
