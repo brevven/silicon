@@ -89,7 +89,7 @@ data:extend({
     type = "item",
     name = "silicon-wafer",
     icon = "__bzsilicon__/graphics/icons/silicon-wafer.png",
-    icon_size = "64", icon_mipmaps = 3,
+    icon_size = 64, icon_mipmaps = 3,
     subgroup = "intermediate-product",
     stack_size = util.get_stack_size(100),
     order = "s[silicon]-silicon-wafer",
