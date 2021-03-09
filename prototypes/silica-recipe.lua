@@ -11,7 +11,17 @@ data:extend(
     ingredients = {{"quartz", 10}},
     result = "silica",
     result_count = 30
-  } or {
+  } or mods["Bio_Industries"] and {
+    type = "recipe",
+    name = "silica",
+    category = "biofarm-mod-crushing",
+    enabled = false,
+    energy_required = 6,
+    ingredients = {{"stone-crushed", 4}},
+    result = "silica",
+    result_count = 5,
+  } or
+  {
     type = "recipe",
     name = "silica",
     category = "smelting",

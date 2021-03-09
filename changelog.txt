@@ -5,6 +5,8 @@ Date: 2021-03-08
     - New visuals by snouz (icons, technologies)
     - New mod icon
     - Added icon mipmaps
+  Features:
+    - Beta Bio Industries compatibility: silica from crushed stone, concrete recipe update.
 ---------------------------------------------------------------------------------------------------
 Version: 0.4.1
 Date: 2021-02-28
