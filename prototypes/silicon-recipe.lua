@@ -45,7 +45,7 @@ data:extend(
     type = "item",
     name = "silicon",
     icon = "__bzsilicon__/graphics/icons/silicon.png",
-    icon_size = 64,
+    icon_size = 64, icon_mipmaps = 3,
     subgroup = "raw-material",
     order = "b[silicon]",
     stack_size = util.get_stack_size(100)
@@ -54,8 +54,8 @@ data:extend(
   {
     type = "technology",
     name = "silicon-processing",
-    icon_size = 128,
-    icon = "__bzsilicon__/graphics/icons/silicon-processing.png",
+    icon_size = 256, icon_mipmaps = 4,
+    icon = "__bzsilicon__/graphics/technology/silicon-processing.png",
     effects =
     {
       {
@@ -89,7 +89,7 @@ data:extend({
     type = "item",
     name = "silicon-wafer",
     icon = "__bzsilicon__/graphics/icons/silicon-wafer.png",
-    icon_size = "64",
+    icon_size = 64, icon_mipmaps = 3,
     subgroup = "intermediate-product",
     stack_size = util.get_stack_size(100),
     order = "s[silicon]-silicon-wafer",
@@ -115,7 +115,7 @@ data:extend({
     type = "item",
     name = "solar-cell",
     icon = "__bzsilicon__/graphics/icons/solar-cell.png",
-    icon_size = "128",
+    icon_size = 64, icon_mipmaps = 3,
     subgroup = "intermediate-product",
     stack_size = util.get_stack_size(100),
     order = "s[silicon]-solar-cell",

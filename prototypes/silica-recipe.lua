@@ -37,7 +37,7 @@ data:extend(
     type = "item",
     name = "silica",
     icon = "__bzsilicon__/graphics/icons/silica.png",
-    icon_size = 64,
+    icon_size = 64, icon_mipmaps = 3,
     subgroup = "raw-material",
     order = "b[silica]",
     stack_size = util.get_stack_size(100)
@@ -45,8 +45,8 @@ data:extend(
   mods["Krastorio2"] and {
     type = "technology",
     name = "silica-processing",
-    icon_size = 128,
-    icon = "__bzsilicon__/graphics/icons/silica-processing.png",
+    icon_size = 256, icon_mipmaps = 4,
+    icon = "__bzsilicon__/graphics/technology/silica-processing.png",
     effects =
     {
       {
@@ -72,8 +72,8 @@ data:extend(
   } or {
     type = "technology",
     name = "silica-processing",
-    icon_size = 128,
-    icon = "__bzsilicon__/graphics/icons/silica-processing.png",
+    icon_size = 256, icon_mipmaps = 4,
+    icon = "__bzsilicon__/graphics/technology/silica-processing.png",
     effects =
     {
       {
