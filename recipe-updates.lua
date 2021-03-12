@@ -41,16 +41,36 @@ end
 util.replace_ingredient("beacon", "copper-cable", "optical-fiber")
 util.add_prerequisite("effect-transmission", "fiber-optics")
 
+local function sw()
+  if util.more_intermediates() then
+    return "silicon-wafer"
+  end
+  return "silicon"
+end
+
 -- Circuit network changes
+local useful_combinators = {"timer-combinator", "counting-combinator", "random-combinator",
+  "power-combinator", "max-combinator", "min-combinator", "and-gate-combinator",
+  "nand-gate-combinator", "nor-gate-combinator", "not-gate-combinator", "or-gate-combinator",
+  "xnor-gate-combinator", "xor-gate-combinator", "converter-combinator", "detector-combinator",
+  "sensor-combinator", "railway-combinator", "color-combinator", "daytime-combinator",
+ "statistic-combinator", "pollution-combinator", "emitter-combinator", "receiver-combinator"}
+
 util.replace_ingredient("green-wire", "copper-cable", "optical-fiber")
-util.replace_ingredient("green-wire", "electronic-circuit", "silicon")
+util.replace_ingredient("green-wire", "electronic-circuit", sw())
 util.replace_ingredient("red-wire", "copper-cable", "optical-fiber")
-util.replace_ingredient("red-wire", "electronic-circuit", "silicon")
+util.replace_ingredient("red-wire", "electronic-circuit", sw())
 
 if not mods["IndustrialRevolution"] then
-  util.add_ingredient("arithmetic-combinator", "silicon", 1)
-  util.add_ingredient("constant-combinator", "silicon", 1)
-  util.add_ingredient("decider-combinator", "silicon", 1)
+  util.add_ingredient("arithmetic-combinator", sw(), 1)
+  util.add_ingredient("constant-combinator", sw(), 1)
+  util.add_ingredient("decider-combinator", sw(), 1)
+  if mods["UsefulCombinators"] then
+    for i, v in ipairs(useful_combinators) do
+      util.add_ingredient(v, sw(), 1)
+    end
+  end
+  
 else
   util.add_prerequisite("circuit-network", "fiber-optics")
 end
@@ -59,6 +79,11 @@ util.add_ingredient("arithmetic-combinator", "optical-fiber", 1)
 util.add_ingredient("constant-combinator", "optical-fiber", 1)
 util.add_ingredient("decider-combinator", "optical-fiber", 1)
 util.add_ingredient("programmable-speaker", "optical-fiber", 1)
+if mods["UsefulCombinators"] then
+  for i, v in ipairs(useful_combinators) do
+    util.add_ingredient(v, "optical-fiber", 1)
+  end
+end
 
 util.add_prerequisite("circuit-network", "fiber-optics")
 util.add_prerequisite("circuit-network", util.silicon_processing)
