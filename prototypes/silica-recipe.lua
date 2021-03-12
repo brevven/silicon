@@ -14,7 +14,7 @@ data:extend(
   } or mods["Bio_Industries"] and {
     type = "recipe",
     name = "silica",
-    category = "biofarm-mod-crushing",
+    category = "smelting",
     enabled = false,
     energy_required = 6,
     ingredients = {{"stone-crushed", 4}},
