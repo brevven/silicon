@@ -1,4 +1,6 @@
 require("recipe-updates")
+require("prototypes/silica-recipe-updates")
+require("prototypes/silicon-recipe-updates")
 require("recipes/silicon-vulcanite")
 
 

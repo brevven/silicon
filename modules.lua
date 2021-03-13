@@ -10,6 +10,10 @@ if mods["space-exploration"] then
   table.insert(recipes, "silicon-smelting-vulcanite")
 end
 
+if data.raw.recipe["silicon-coke"] then
+  table.insert(recipes, "silicon-coke")
+end
+
 for i, recipe in pairs(recipes) do
   if data.raw.recipe[recipe] then
     for j, module in pairs(data.raw.module) do
