@@ -23,6 +23,7 @@ if not mods["Krastorio2"] then
 
     util.multiply_recipe("advanced-circuit", 3)
     util.replace_some_ingredient("advanced-circuit", "electronic-circuit", 3, "silicon-wafer", 1)
+    util.add_prerequisite("advanced-electronics", util.silicon_processing)
 
   else
     util.replace_some_ingredient("solar-panel", "electronic-circuit", 10, "silicon", 10)
@@ -31,10 +32,10 @@ if not mods["Krastorio2"] then
     util.replace_ingredient("effectivity-module", "electronic-circuit", "silicon")
     util.replace_ingredient("productivity-module", "electronic-circuit", "silicon")
     util.replace_ingredient("speed-module", "electronic-circuit", "silicon")
+    util.add_prerequisite("advanced-electronics-2", util.silicon_processing)
   end
 
   util.add_prerequisite("solar-energy", "silicon-processing")
-  util.add_prerequisite("advanced-electronics-2", util.silicon_processing)
   util.add_prerequisite("modules", util.silicon_processing)
 else
   util.add_ingredient("concrete", "silica", 15);
