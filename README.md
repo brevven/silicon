@@ -13,3 +13,6 @@ See changelog.
 - [brevven](https://mods.factorio.com/user/brevven) (code, design, graphics)
 - [snouz](https://github.com/snouz) (graphics)
 
+## Thanks to 
+- [GeneralTank](https://mods.factorio.com/user/GeneralTank) (code contribution, design contribution)
+- [ZombieMooose](https://mods.factorio.com/user/ZombieMooose) (design contribution)
