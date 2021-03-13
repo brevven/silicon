@@ -29,9 +29,8 @@ if mods["space-exploration"] then
       results = {
         {name = "silicon", amount = 3},
       },
-      icons =
-      {
-          { icon = "__bzsilicon__/graphics/icons/silicon.png", icon_size = 64, icon_mipmaps = 3 },
+      icons = {
+        { icon = "__bzsilicon__/graphics/icons/silicon.png", icon_size = 64, icon_mipmaps = 3 },
         { icon = "__space-exploration-graphics__/graphics/icons/vulcanite-block.png", icon_size = 64, scale=0.25, shift= {-10, -10}},
       },
     },

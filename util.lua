@@ -131,4 +131,66 @@ function util.add_effect(technology_name, effect)
   end
 end
 
+-- check if a table contains a sought value
+function util.contains(table, sought)
+  for i, value in pairs(table) do
+    if value == sought then
+      return true
+    end
+  end
+  return false
+end
+
+
+-- multiply the cost, energy, and results of a recipe by a multiple
+function util.multiply_recipe(recipe_name, multiple)
+  multiply_recipe(data.raw.recipe[recipe_name], multiple)
+  multiply_recipe(data.raw.recipe[recipe_name].normal, multiple)
+  multiply_recipe(data.raw.recipe[recipe_name].expensive, multiple)
+end
+
+function multiply_recipe(recipe, multiple)
+  if recipe then
+    if recipe.energy_required then
+      recipe.energy_required = recipe.energy_required * multiple
+    end
+    if recipe.result_count then
+      recipe.result_count = recipe.result_count * multiple
+    end
+    if recipe.results then
+      for i, result in pairs(recipe.results) do
+        if result.name then
+          if result.amount then
+            result.amount = result.amount * multiple
+          end
+          if result.amount_min ~= nil then
+            result.amount_min = result.amount_min * multiple
+            result.amount_max = result.amount_max * multiple
+          end
+          if result.catalyst_amount then
+            result.catalyst_amount = result.catalyst_amount * multiple
+          end
+        end
+        if result[1] then
+          result[2] = result[2] * multiple
+        end
+      end
+    end
+    if not recipe.results and not recipe.result_count then
+      -- implicit one item result
+      recipe.result_count = multiple
+    end
+    if recipe.ingredients then
+      for i, ingredient in pairs(recipe.ingredients) do
+        if ingredient.name then
+          ingredient.amount = ingredient.amount * multiple
+        end
+        if ingredient[1] then
+          ingredient[2] = ingredient[2] * multiple
+        end
+      end
+    end
+  end
+end
+
 return util

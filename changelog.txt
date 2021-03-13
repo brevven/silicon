@@ -1,8 +1,11 @@
 ---------------------------------------------------------------------------------------------------
-Version: 0.5.3
-Date: 2021-03-11
+Version: 0.6.0
+Date: 2021-03-13
   Changes:
-    - Bio industries, crushed stone -> silica recipe is smelting now.
+    - Less silicon (or wafers) needed in processing units
+    - If using intermediates, wafers now required for advanced circuits
+    - Increase map's richness of stone slightly.
+    - Bio industries, crushed stone -> silica recipe is smelting now. More changes to come...
 ---------------------------------------------------------------------------------------------------
 Version: 0.5.2
 Date: 2021-03-11
