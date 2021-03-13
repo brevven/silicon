@@ -127,7 +127,7 @@ data:extend({
     subgroup = "intermediate-product",
     enabled = false,
     energy_required = 2,
-    ingredients = (mods["bzlead"] and {
+    ingredients = (mods["bzlead"] and not mods["angelssmelting"] and {
       {type= "item", name="silicon", amount=2},
       {type= "item", name="electronic-circuit", amount=1},
       {type= "item", name="lead-plate", amount=1},
