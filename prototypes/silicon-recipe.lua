@@ -22,8 +22,7 @@ data:extend(
     type = "recipe",
     name = "silicon",
     category = "smelting",
-    normal = 
-    {
+    normal = {
       enabled = false,
       energy_required = 3.2,
       ingredients = {{"silica", 10}},
