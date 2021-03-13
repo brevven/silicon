@@ -129,4 +129,7 @@ if mods["space-exploration"] then
   util.add_ingredient("se-space-supercomputer-2", "optical-fiber", 500)
 
   util.add_ingredient("se-polarisation-data", "optical-fiber", 1)
+
+  util.add_ingredient("se-chemical-gel", "silica", 10)
+  util.add_ingredient("se-material-testing-pack", "silica", 1)
 end

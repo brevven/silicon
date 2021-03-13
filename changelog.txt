@@ -3,6 +3,8 @@ Version: 0.6.1
 Date: 2021-03-13
   Fixes:
     - Minor tech tree fix when intermediates on.
+  Changes: 
+    - Space Exploration: Added silica to chemical gel, materials testing pack
 ---------------------------------------------------------------------------------------------------
 Version: 0.6.0
 Date: 2021-03-13
