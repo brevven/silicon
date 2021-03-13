@@ -1,6 +1,6 @@
-# Silica & Silicon
+# [Silica & Silicon](https://mods.factorio.com/mod/bzsilicon)
 
-Adds a simple "Vanilla+" version of Silica and Silicon to the game.
+Mod for Factorio, adds a simple "Vanilla+" version of Silica and Silicon to the game with some fiber optics and optional intermediates.
 Doesn't require or any new buildings.
 
 
