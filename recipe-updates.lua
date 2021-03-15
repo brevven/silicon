@@ -80,18 +80,10 @@ if not mods["IndustrialRevolution"] then
     util.add_ingredient("crafting_combinator:crafting-combinator", sw(), 1)
     util.add_ingredient("crafting_combinator:recipe-combinator", sw(), 1)
   end
-  if data.raw.item["clock-combinator"] then
-    util.add_ingredient("clock-combinator", sw(), 1)
-  end
-  if data.raw.item["power-meter-combinator"] then
-    util.add_ingredient("power-meter-combinator", sw(), 1)
-  end
-  if data.raw.item["ghost-scanner"] then
-    util.add_ingredient("ghost-scanner", sw(), 1)
-  end
-  if data.raw.item["item-sensor"] then
-    util.add_ingredient("item-sensor", sw(), 1)
-  end
+  util.add_ingredient("clock-combinator", sw(), 1)
+  util.add_ingredient("power-meter-combinator", sw(), 1)
+  util.add_ingredient("ghost-scanner", sw(), 1)
+  util.add_ingredient("item-sensor", sw(), 1)
 else
   util.add_prerequisite("circuit-network", "fiber-optics")
 end
@@ -109,18 +101,10 @@ if mods["crafting_combinator"] then
   util.add_ingredient("crafting_combinator:crafting-combinator", "optical-fiber", 1)
   util.add_ingredient("crafting_combinator:recipe-combinator", "optical-fiber", 1)
 end
-if data.raw.item["clock-combinator"] then
-  util.add_ingredient("clock-combinator", "optical-fiber", 1)
-end
-if data.raw.item["power-meter-combinator"] then
-  util.add_ingredient("power-meter-combinator", "optical-fiber", 1)
-end
-if data.raw.item["ghost-scanner"] then
-  util.add_ingredient("ghost-scanner", "optical-fiber", 1)
-end
-if data.raw.item["item-sensor"] then
-  util.add_ingredient("item-sensor", "optical-fiber", 1)
-end
+util.add_ingredient("clock-combinator", "optical-fiber", 1)
+util.add_ingredient("power-meter-combinator", "optical-fiber", 1)
+util.add_ingredient("ghost-scanner", "optical-fiber", 1)
+util.add_ingredient("item-sensor", "optical-fiber", 1)
 
 util.add_prerequisite("circuit-network", "fiber-optics")
 util.add_prerequisite("circuit-network", util.silicon_processing)
