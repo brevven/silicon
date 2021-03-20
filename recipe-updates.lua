@@ -2,7 +2,7 @@ local util = require("__bzsilicon__.util");
 
 if not mods["Krastorio2"] then
   util.remove_ingredient("concrete", "stone-brick");
-  if mods["Bio_Industries"] then
+  if mods["Bio_Industries"] or mods["omnimatter"] then
     util.add_ingredient("concrete", "stone-brick", 3);
     util.add_ingredient("concrete", "silica", 10);
   else 
