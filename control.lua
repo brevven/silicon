@@ -7,6 +7,9 @@ script.on_event( defines.events.on_console_chat, function(event)
       if game.players[event.player_index].force.recipes["solar-cell"] then
         game.players[event.player_index].force.recipes["solar-cell"].enabled=true      
       end
+      if game.players[event.player_index].force.recipes["hydrogen-chloride"] then
+        game.players[event.player_index].force.recipes["hydrogen-chloride"].enabled=true      
+      end
   end
 end)
 

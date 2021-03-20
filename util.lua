@@ -34,7 +34,9 @@ end
 -- Add a prerequisite to a given technology
 function util.add_prerequisite(technology_name, prerequisite)
   technology = data.raw.technology[technology_name]
-	table.insert(technology.prerequisites, prerequisite)
+  if technology then
+    table.insert(technology.prerequisites, prerequisite)
+  end
 end
 
 -- Add a given quantity of ingredient to a given recipe
