@@ -20,6 +20,15 @@ data:extend(
     ingredients = {{"stone-crushed", 4}},
     result = "silica",
     result_count = 5,
+  } or mods["omnimatter"] and {
+    type = "recipe",
+    name = "silica",
+    category = "smelting",
+    enabled = false,
+    energy_required = 6,
+    ingredients = {{"stone-crushed", 4}},
+    result = "silica",
+    result_count = 5,
   } or
   {
     type = "recipe",
