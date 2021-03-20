@@ -139,4 +139,6 @@ data:extend({
     result_count = 2,
   },
 })
+
+util.add_effect("kr-fluids-chemistry", {type="unlock-recipe", recipe="hydrogen-chloride"})
 end
