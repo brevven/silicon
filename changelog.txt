@@ -1,4 +1,12 @@
 ---------------------------------------------------------------------------------------------------
+Version: 0.6.6
+Date: 2021-03-20
+  Changes:
+    - Rebalance: circuit network components always use silicon, not wafers
+      This makes them craftable when they are unlocked, and also improves mod compatibility.
+    - Programmable speaker also uses 1 silicon.
+    - When using Extended Research System with Bio Industries, unlock some stuff earlier.
+---------------------------------------------------------------------------------------------------
 Version: 0.6.5
 Date: 2021-03-19
   Features:

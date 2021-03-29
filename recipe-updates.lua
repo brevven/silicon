@@ -47,13 +47,6 @@ end
 util.replace_ingredient("beacon", "copper-cable", "optical-fiber")
 util.add_prerequisite("effect-transmission", "fiber-optics")
 
-local function sw()
-  if util.more_intermediates() then
-    return "silicon-wafer"
-  end
-  return "silicon"
-end
-
 -- Circuit network changes
 local useful_combinators = {"timer-combinator", "counting-combinator", "random-combinator",
   "power-combinator", "max-combinator", "min-combinator", "and-gate-combinator",
@@ -63,27 +56,28 @@ local useful_combinators = {"timer-combinator", "counting-combinator", "random-c
  "statistic-combinator", "pollution-combinator", "emitter-combinator", "receiver-combinator"}
 
 util.replace_ingredient("green-wire", "copper-cable", "optical-fiber")
-util.replace_ingredient("green-wire", "electronic-circuit", sw())
+util.replace_ingredient("green-wire", "electronic-circuit", "silicon")
 util.replace_ingredient("red-wire", "copper-cable", "optical-fiber")
-util.replace_ingredient("red-wire", "electronic-circuit", sw())
+util.replace_ingredient("red-wire", "electronic-circuit", "silicon")
 
 if not mods["IndustrialRevolution"] then
-  util.add_ingredient("arithmetic-combinator", sw(), 1)
-  util.add_ingredient("constant-combinator", sw(), 1)
-  util.add_ingredient("decider-combinator", sw(), 1)
+  util.add_ingredient("arithmetic-combinator", "silicon", 1)
+  util.add_ingredient("constant-combinator", "silicon", 1)
+  util.add_ingredient("decider-combinator", "silicon", 1)
+  util.add_ingredient("programmable-speaker", "silicon", 1)
   if mods["UsefulCombinators"] then
     for i, v in ipairs(useful_combinators) do
-      util.add_ingredient(v, sw(), 1)
+      util.add_ingredient(v, "silicon", 1)
     end
   end
   if mods["crafting_combinator"] then
-    util.add_ingredient("crafting_combinator:crafting-combinator", sw(), 1)
-    util.add_ingredient("crafting_combinator:recipe-combinator", sw(), 1)
+    util.add_ingredient("crafting_combinator:crafting-combinator", "silicon", 1)
+    util.add_ingredient("crafting_combinator:recipe-combinator", "silicon", 1)
   end
-  util.add_ingredient("clock-combinator", sw(), 1)
-  util.add_ingredient("power-meter-combinator", sw(), 1)
-  util.add_ingredient("ghost-scanner", sw(), 1)
-  util.add_ingredient("item-sensor", sw(), 1)
+  util.add_ingredient("clock-combinator", "silicon", 1)
+  util.add_ingredient("power-meter-combinator", "silicon", 1)
+  util.add_ingredient("ghost-scanner", "silicon", 1)
+  util.add_ingredient("item-sensor", "silicon", 1)
 else
   util.add_prerequisite("circuit-network", "fiber-optics")
 end
@@ -147,4 +141,21 @@ if mods["space-exploration"] then
 
   util.add_ingredient("se-chemical-gel", "silica", 10)
   util.add_ingredient("se-material-testing-pack", "silica", 1)
+end
+
+
+
+if mods["extended-research-system"] and mods["Bio_Industries"] then
+  data:extend({{
+      type = "recipe",
+      name = "bi-stone-crusher-ers",
+      category = "crafting",
+      enabled = true,
+      energy_required = 6,
+      ingredients = {{"iron-plate", 100}, {"iron-gear-wheel", 5}},
+      result = "bi-stone-crusher",
+    }})
+  if data.raw.recipe["bi-crushed-stone-1"] then
+    data.raw.recipe["bi-crushed-stone-1"].enabled = true
+  end
 end
