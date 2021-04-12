@@ -12,9 +12,18 @@ if not mods["Krastorio2"] then
 
   if util.more_intermediates() then 
     util.replace_some_ingredient("processing-unit", "electronic-circuit", 10, "silicon-wafer", 3)
-    util.replace_ingredient("effectivity-module", "electronic-circuit", "silicon-wafer")
-    util.replace_ingredient("productivity-module", "electronic-circuit", "silicon-wafer")
-    util.replace_ingredient("speed-module", "electronic-circuit", "silicon-wafer")
+
+    util.multiply_recipe("effectivity-module", 2)
+    util.remove_ingredient("effectivity-module", "electronic-circuit")
+    util.add_ingredient("effectivity-module", "silicon-wafer", 3)
+
+    util.multiply_recipe("productivity-module", 2)
+    util.remove_ingredient("productivity-module", "electronic-circuit")
+    util.add_ingredient("productivity-module", "silicon-wafer", 3)
+
+    util.multiply_recipe("speed-module", 2)
+    util.remove_ingredient("speed-module", "electronic-circuit")
+    util.add_ingredient("speed-module", "silicon-wafer", 3)
 
     util.replace_ingredient("solar-panel", "electronic-circuit", "solar-cell")
     util.replace_ingredient("solar-panel-equipment", "solar-panel", "solar-cell")
@@ -29,9 +38,14 @@ if not mods["Krastorio2"] then
     util.replace_some_ingredient("solar-panel", "electronic-circuit", 10, "silicon", 10)
 
     util.replace_some_ingredient("processing-unit", "electronic-circuit", 10, "silicon", 6)
-    util.replace_ingredient("effectivity-module", "electronic-circuit", "silicon")
-    util.replace_ingredient("productivity-module", "electronic-circuit", "silicon")
-    util.replace_ingredient("speed-module", "electronic-circuit", "silicon")
+
+    util.remove_ingredient("effectivity-module", "electronic-circuit")
+    util.add_ingredient("effectivity-module", "silicon", 3)
+    util.remove_ingredient("productivity-module", "electronic-circuit")
+    util.add_ingredient("productivity-module", "silicon", 3)
+    util.remove_ingredient("speed-module", "electronic-circuit")
+    util.add_ingredient("speed-module", "silicon", 3)
+
     util.add_prerequisite("advanced-electronics-2", util.silicon_processing)
   end
 
