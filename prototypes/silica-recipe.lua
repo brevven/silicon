@@ -11,7 +11,7 @@ data:extend(
     ingredients = {{"quartz", 10}},
     result = "silica",
     result_count = 30
-  } or mods["Bio_Industries"] and {
+  } or util.use_bio_crushed_stone() and {
     type = "recipe",
     name = "silica",
     category = "smelting",

@@ -1,4 +1,10 @@
 ---------------------------------------------------------------------------------------------------
+Version: 0.6.7
+Date: 2021-04-11
+  Changes:
+    - Added experimental setting to not use crushed stone with Bio Industries.
+      This is meant only for massive megabases, and is not recommended otherwise.
+---------------------------------------------------------------------------------------------------
 Version: 0.6.6
 Date: 2021-03-20
   Changes:

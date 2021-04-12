@@ -13,6 +13,10 @@ function util.more_intermediates()
   return mods["Bio_Industries"] or util.get_setting("bzsilicon-more-intermediates") == "yes"
 end
 
+function util.use_bio_crushed_stone()
+  return mods["Bio_Industries"] and util.get_setting("bzsilicon-bio-crushed-stone") == true
+end
+
 function util.get_stack_size(default) 
   if mods["Krastorio2"] then
     size = tonumber(krastorio.general.getSafeSettingValue("kr-stack-size"))
