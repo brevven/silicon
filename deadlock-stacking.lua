@@ -25,3 +25,8 @@ if deadlock_crating then
     deadlock_crating.add_crate("solar-cell", "deadlock-crating-2", 64)
   end
 end
+
+if mods["deadlock_stacked_recipes"] and mods["Krastorio2"] then
+  -- We assume the crushing stacked quartz -> silica recipe will be added.
+  util.remove_raw("recipe", "kr-vc-deadlock-stack-quartz")
+end
