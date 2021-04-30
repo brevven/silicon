@@ -12,6 +12,11 @@ See changelog.
 - [brevven](https://mods.factorio.com/user/brevven) (code, design, graphics)
 - [snouz](https://github.com/snouz) (graphics)
 
-## Thanks to 
+### Thanks to 
 - [GeneralTank](https://mods.factorio.com/user/GeneralTank) (code contribution for stacking and crating, design contributions)
 - [ZombieMooose](https://mods.factorio.com/user/ZombieMooose) (design contributions)
+
+### Localization
+
+Thanks to
+- [yokmp](https://mods.factorio.com/user/yokmp) (de)
