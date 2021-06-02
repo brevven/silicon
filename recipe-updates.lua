@@ -157,6 +157,13 @@ if mods["space-exploration"] then
   util.add_ingredient("se-material-testing-pack", "silica", 1)
 end
 
+if mods["zombiesextended-core"] then
+  if util.more_intermediates() then 
+    util.add_ingredient("complex-processing-unit", "silicon-wafer", 1)
+  else
+    util.add_ingredient("complex-processing-unit", "silicon", 2)
+  end
+end
 
 
 if mods["extended-research-system"] and mods["Bio_Industries"] then
