@@ -22,3 +22,4 @@ Thanks to
 - [yokmp](https://mods.factorio.com/user/yokmp) (de)
 - [Spectrus1702](https://github.com/Spectrus1702) (ru)
 - [TheoMarque](https://github.com/TheoMarque) (pl)
+- [Sakuro](https://github.com/sakuro) (ja)
