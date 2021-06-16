@@ -3,6 +3,8 @@ Version: 0.7.0
 Date: 2021-06-16
   Features:
     - Recipe bypass setting
+  Changes:
+    - Polish localization tweaks, thanks to user TheoMarque
 ---------------------------------------------------------------------------------------------------
 Version: 0.6.14
 Date: 2021-06-02
