@@ -30,8 +30,10 @@ if not mods["Krastorio2"] then
     util.add_effect("solar-energy", {type = "unlock-recipe", recipe="solar-cell"})
 
 
-    util.multiply_recipe("advanced-circuit", 3)
-    util.replace_some_ingredient("advanced-circuit", "electronic-circuit", 3, "silicon-wafer", 1)
+    if not mods.modmashsplinterelectronics then
+      util.multiply_recipe("advanced-circuit", 3)
+      util.replace_some_ingredient("advanced-circuit", "electronic-circuit", 3, "silicon-wafer", 1)
+    end
     util.add_prerequisite("advanced-electronics", util.silicon_processing)
 
   else

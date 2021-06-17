@@ -8,6 +8,7 @@
     "homepage": "",
     "dependencies": [
       "? Krastorio2",
+      "? modmashsplinterelectronics",
 	    "base >= 0.18"
     ],
     "description": "Adds simple Silica and Silicon to the game, along with basic fiber optics."
