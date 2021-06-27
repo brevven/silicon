@@ -116,6 +116,15 @@ util.add_ingredient("power-meter-combinator", "optical-fiber", 1)
 util.add_ingredient("ghost-scanner", "optical-fiber", 1)
 util.add_ingredient("item-sensor", "optical-fiber", 1)
 
+-- Transport Drones
+util.add_ingredient("road-network-reader", "optical-fiber", 5)
+util.replace_some_ingredient("road-network-reader", "electronic-circuit", 5, "silicon", 5)
+util.add_ingredient("transport-depot-reader", "optical-fiber", 5)
+util.replace_some_ingredient("transport-depot-reader", "electronic-circuit", 5, "silicon", 5)
+util.add_ingredient("transport-depot-writer", "optical-fiber", 5)
+util.replace_some_ingredient("transport-depot-writer", "electronic-circuit", 5, "silicon", 5)
+
+
 util.add_prerequisite("circuit-network", "fiber-optics")
 util.add_prerequisite("circuit-network", util.silicon_processing)
 
