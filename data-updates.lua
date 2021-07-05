@@ -1,4 +1,5 @@
 require("recipe-updates")
+require("strange-matter")
 require("recipes/silicon-vulcanite")
 
 
