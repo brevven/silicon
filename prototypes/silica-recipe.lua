@@ -77,7 +77,7 @@ data:extend(
         recipe = "quartz"
       },
     },
-    prerequisites = {"kr-fluids-chemistry"},
+    prerequisites = {"kr-fluids-chemistry", "kr-stone-processing"},
     unit =
     {
       count = 10,
