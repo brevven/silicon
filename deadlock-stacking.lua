@@ -7,7 +7,7 @@ if deadlock then
   if not mods["Krastorio2"] then
     deadlock.add_stack("silicon", "__bzsilicon__/graphics/icons/stacked/silicon-stacked.png" , "deadlock-stacking-2", 64)
   end
-  if util.more_intermediates() then
+  if util.me.more_intermediates() then
     deadlock.add_stack("silicon-wafer", "__bzsilicon__/graphics/icons/stacked/silicon-wafer-stacked.png" , "deadlock-stacking-2", 64)
     deadlock.add_stack("solar-cell", "__bzsilicon__/graphics/icons/stacked/solar-cell-stacked.png" , "deadlock-stacking-2", 64)
   end
@@ -20,7 +20,7 @@ if deadlock_crating then
   if not mods["Krastorio2"] then
     deadlock_crating.add_crate("silicon", "deadlock-crating-2")
   end
-  if util.more_intermediates() then
+  if util.me.more_intermediates() then
     deadlock_crating.add_crate("silicon-wafer", "deadlock-crating-2", 64)
     deadlock_crating.add_crate("solar-cell", "deadlock-crating-2", 64)
   end

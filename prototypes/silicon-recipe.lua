@@ -62,7 +62,7 @@ data:extend(
         type = "unlock-recipe",
         recipe = "silicon",
       },
-      util.more_intermediates() and
+      util.me.more_intermediates() and
       {
         type = "unlock-recipe",
         recipe = "silicon-wafer",
@@ -83,7 +83,7 @@ data:extend(
   } or nil,
 }
 )
-if util.more_intermediates() then
+if util.me.more_intermediates() then
 data:extend({
   {
     type = "item",

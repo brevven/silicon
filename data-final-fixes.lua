@@ -5,7 +5,7 @@ local util = require("__bzsilicon__.util");
  
 -- Mod Mash Splinter Electronics
 if mods.modmashsplinterelectronics then
-  if util.more_intermediates() then
+  if util.me.more_intermediates() then
     util.multiply_recipe("advanced-circuit", 3)
     util.add_ingredient("advanced-circuit", "silicon-wafer", 1)
   end

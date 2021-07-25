@@ -11,7 +11,7 @@ if not mods["Krastorio2"] then
   end
   util.add_prerequisite("concrete", "silica-processing")
 
-  if util.more_intermediates() then 
+  if util.me.more_intermediates() then 
     util.replace_some_ingredient("processing-unit", "electronic-circuit", 10, "silicon-wafer", 3)
 
     util.multiply_recipe("effectivity-module", 2)
@@ -35,7 +35,7 @@ if not mods["Krastorio2"] then
       util.multiply_recipe("advanced-circuit", 3)
       util.replace_some_ingredient("advanced-circuit", "electronic-circuit", 3, "silicon-wafer", 1)
     end
-    util.add_prerequisite("advanced-electronics", util.silicon_processing)
+    util.add_prerequisite("advanced-electronics", util.me.silicon_processing)
 
   else
     util.replace_some_ingredient("solar-panel", "electronic-circuit", 10, "silicon", 10)
@@ -49,11 +49,11 @@ if not mods["Krastorio2"] then
     util.remove_ingredient("speed-module", "electronic-circuit")
     util.add_ingredient("speed-module", "silicon", 3)
 
-    util.add_prerequisite("advanced-electronics-2", util.silicon_processing)
+    util.add_prerequisite("advanced-electronics-2", util.me.silicon_processing)
   end
 
   util.add_prerequisite("solar-energy", "silicon-processing")
-  util.add_prerequisite("modules", util.silicon_processing)
+  util.add_prerequisite("modules", util.me.silicon_processing)
 else
   util.add_ingredient("concrete", "silica", 15);
   if not mods["aai-industry"] then
@@ -127,16 +127,16 @@ util.replace_some_ingredient("transport-depot-writer", "electronic-circuit", 5, 
 
 
 util.add_prerequisite("circuit-network", "fiber-optics")
-util.add_prerequisite("circuit-network", util.silicon_processing)
+util.add_prerequisite("circuit-network", util.me.silicon_processing)
 
 if mods["Krastorio2"] then
   util.add_ingredient("biusart-lab", "optical-fiber", 10)
   util.add_ingredient("ai-core", "optical-fiber", 2)
 
-  util.add_prerequisite(util.silicon_processing, "silica-processing")
+  util.add_prerequisite(util.me.silicon_processing, "silica-processing")
 
-  if util.more_intermediates() then 
-    util.add_effect(util.silicon_processing, {type = "unlock-recipe", recipe="silicon-wafer"})
+  if util.me.more_intermediates() then 
+    util.add_effect(util.me.silicon_processing, {type = "unlock-recipe", recipe="silicon-wafer"})
     util.remove_ingredient("electronic-components", "silicon")
     util.add_ingredient("electronic-components", "silicon-wafer", 1)
 
@@ -170,7 +170,7 @@ if mods["space-exploration"] then
 end
 
 if mods["zombiesextended-core"] then
-  if util.more_intermediates() then 
+  if util.me.more_intermediates() then 
     util.add_ingredient("complex-processing-unit", "silicon-wafer", 1)
   else
     util.add_ingredient("complex-processing-unit", "silicon", 2)

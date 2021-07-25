@@ -1,7 +1,7 @@
 local util = require("__bzsilicon__.util");
 
 recipes = {"silica", "silicon"}
-if util.more_intermediates() then
+if util.me.more_intermediates() then
   table.insert(recipes, "silicon-wafer")
   table.insert(recipes, "solar-cell")
 end
