@@ -1,5 +1,5 @@
 -- Silica
-local util = require("__bzsilicon__.util");
+local util = require("__bzsilicon__.data-util");
 data:extend(
 {
   mods["Krastorio2"] and {

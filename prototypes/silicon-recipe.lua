@@ -1,5 +1,5 @@
 -- Silicon
-local util = require("__bzsilicon__.util");
+local util = require("__bzsilicon__.data-util");
 if mods["Krastorio2"] then
  util.remove_raw("recipe", "silicon-2")
 end

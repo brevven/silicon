@@ -1,7 +1,7 @@
 require("deadlock-stacking")
 require("modules")
 
-local util = require("__bzsilicon__.util");
+local util = require("__bzsilicon__.data-util");
  
 -- Mod Mash Splinter Electronics
 if mods.modmashsplinterelectronics then

@@ -1,4 +1,4 @@
-local util = require("__bzsilicon__.util");
+local util = require("__bzsilicon__.data-util");
 
 
 local ore = "silica"

@@ -1,5 +1,5 @@
 -- Deadlock stacking recipes
-local util = require("__bzsilicon__.util");
+local util = require("__bzsilicon__.data-util");
 
 if deadlock then
   deadlock.add_stack("silica", "__bzsilicon__/graphics/icons/stacked/silica-stacked.png" , "deadlock-stacking-1", 64)
