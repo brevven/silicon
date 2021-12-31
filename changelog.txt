@@ -3,6 +3,7 @@ Version: 0.8.0
 Date: 2021-12-31
   Changes:
     - K2 1.2 alternate electronic components recipe
+    - Update stone autoplace for more stone.
 ---------------------------------------------------------------------------------------------------
 Version: 0.7.4
 Date: 2021-07-26
