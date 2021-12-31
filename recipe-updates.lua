@@ -139,6 +139,9 @@ if mods["Krastorio2"] then
     util.add_effect(util.me.silicon_processing, {type = "unlock-recipe", recipe="silicon-wafer"})
     util.remove_ingredient("electronic-components", "silicon")
     util.add_ingredient("electronic-components", "silicon-wafer", 1)
+    util.multiply_recipe("electronic-components-lithium", 2)
+    util.remove_ingredient("electronic-components-lithium", "silicon")
+    util.add_ingredient("electronic-components-lithium", "silicon-wafer", 3)
 
     util.replace_ingredient("solar-panel", "electronic-circuit", "solar-cell")
     util.remove_ingredient("solar-panel", "silicon")
