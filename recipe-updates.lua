@@ -26,11 +26,15 @@ if not mods["Krastorio2"] then
     util.remove_ingredient("speed-module", "electronic-circuit")
     util.add_ingredient("speed-module", "silicon-wafer", 3)
 
-    util.replace_ingredient("solar-panel", "electronic-circuit", "solar-cell")
+    if mods.IndustrialRevolution then
+      util.add_ingredient("solar-panel", "solar-cell", 9)
+      util.add_effect("ir2-solar-energy-1", {type = "unlock-recipe", recipe="solar-cell"})
+    else
+      util.replace_ingredient("solar-panel", "electronic-circuit", "solar-cell")
+      util.add_effect("solar-energy", {type = "unlock-recipe", recipe="solar-cell"})
+    end
     util.replace_ingredient("solar-panel-equipment", "solar-panel", "solar-cell")
-    util.add_effect("solar-energy", {type = "unlock-recipe", recipe="solar-cell"})
-
-
+    
     if not mods.modmashsplinterelectronics then
       util.multiply_recipe("advanced-circuit", 3)
       util.replace_some_ingredient("advanced-circuit", "electronic-circuit", 3, "silicon-wafer", 1)
@@ -95,6 +99,7 @@ if not mods["IndustrialRevolution"] then
   util.add_ingredient("power-meter-combinator", "silicon", 1)
   util.add_ingredient("ghost-scanner", "silicon", 1)
   util.add_ingredient("item-sensor", "silicon", 1)
+  util.add_ingredient("bi-pollution-sensor", "silicon", 1)
 else
   util.add_prerequisite("circuit-network", "fiber-optics")
 end
@@ -116,6 +121,7 @@ util.add_ingredient("clock-combinator", "optical-fiber", 1)
 util.add_ingredient("power-meter-combinator", "optical-fiber", 1)
 util.add_ingredient("ghost-scanner", "optical-fiber", 1)
 util.add_ingredient("item-sensor", "optical-fiber", 1)
+util.add_ingredient("bi-pollution-sensor", "optical-fiber", 1)
 
 -- Transport Drones
 util.add_ingredient("road-network-reader", "optical-fiber", 5)
