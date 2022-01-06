@@ -23,3 +23,4 @@ Thanks to
 - [Spectrus1702](https://github.com/Spectrus1702) (ru)
 - [TheoMarque](https://github.com/TheoMarque) (pl)
 - [Sakuro](https://github.com/sakuro) (ja)
+- [PlexPt](https://github.com/PlexPt) (zh\_CN)
