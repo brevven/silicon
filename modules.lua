@@ -5,6 +5,9 @@ if util.me.more_intermediates() then
   table.insert(recipes, "silicon-wafer")
   table.insert(recipes, "solar-cell")
 end
+if util.me.use_gyros() then
+  table.insert(recipes, "gyro")
+end
 
 if mods["space-exploration"] then
   table.insert(recipes, "silicon-smelting-vulcanite")

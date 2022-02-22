@@ -1,5 +1,42 @@
 local util = require("__bzsilicon__.data-util");
 
+if util.me.use_gyros() then
+  util.add_ingredient("flying-robot-frame", "gyro", 1)
+  util.add_prerequisite("robotics", "gyro")
+
+  util.add_ingredient("distractor-capsule", "gyro", 3)
+  util.add_prerequisite("distractor", "gyro")
+
+  util.add_ingredient("laser-turret", "gyro", 1)
+  util.add_prerequisite("laser-turret", "gyro")
+
+  util.add_ingredient("artillery-shell", "gyro", 1)
+  util.add_ingredient("rocket-control-unit", "gyro", 1)
+
+  util.add_ingredient("gunship", "gyro", 1)
+  util.add_prerequisite("gunships", "gyro")
+  util.add_ingredient("flying-fortress", "gyro", 4)
+  util.add_ingredient("jet", "gyro", 4)
+  
+  util.add_ingredient("jetpack-2", "gyro", 2)
+  util.add_prerequisite("jetpack-2", "gyro")
+  
+  --K2
+  util.add_ingredient("advanced-exoskeleton-equipment", "gyro", 4)
+  util.add_ingredient("kr-laser-artillery-turret", "gyro", 4)
+  util.add_ingredient("kr-railgun-turret", "gyro", 4)
+  util.add_ingredient("kr-advanced-tank", "gyro", 4)
+  util.add_ingredient("kr-rocket-turret", "gyro", 1)
+  util.add_ingredient("kr-nuclear-locomotive", "gyro", 1)
+
+  --SE
+  util.add_ingredient("se-spaceship-console", "gyro", 4)
+  util.add_ingredient("se-space-mechanical-laboratory", "gyro", 14)
+  util.add_ingredient("se-space-gravimetrics-laboratory", "gyro", 8)
+  util.add_ingredient("se-delivery-cannon", "gyro", 2)
+  util.add_ingredient("se-thruster-suit-2", "gyro", 2)
+end
+
 
 if not mods["Krastorio2"] then
   util.remove_ingredient("concrete", "stone-brick");

@@ -1,10 +1,13 @@
-local me = {}
-
+local me = {} 
 me.name = "bzsilicon"
 me.silicon_processing = mods["Krastorio2"] and "kr-silicon-processing" or "silicon-processing"
 
+function me.use_gyros()
+  return me.get_setting("bzsilicon-more-intermediates") == "more"
+end
+
 function me.more_intermediates()
-  return mods["Bio_Industries"] or me.get_setting("bzsilicon-more-intermediates") == "yes"
+  return mods["Bio_Industries"] or me.get_setting("bzsilicon-more-intermediates") == "yes" or me.use_gyros()
 end
 
 function me.use_bio_crushed_stone()

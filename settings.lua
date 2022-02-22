@@ -11,7 +11,7 @@ data:extend( {
 		name = "bzsilicon-more-intermediates",
 		setting_type = "startup",
 		default_value = "no",
-    allowed_values = {"yes", "no"},
+    allowed_values = {"more", "yes", "no"},
 	},
   {
 		type = "bool-setting",

@@ -11,6 +11,9 @@ if deadlock then
     deadlock.add_stack("silicon-wafer", "__bzsilicon__/graphics/icons/stacked/silicon-wafer-stacked.png" , "deadlock-stacking-2", 64)
     deadlock.add_stack("solar-cell", "__bzsilicon__/graphics/icons/stacked/solar-cell-stacked.png" , "deadlock-stacking-2", 64)
   end
+  if util.me.use_gyros() then
+    deadlock.add_stack("gyro", "__bzsilicon__/graphics/icons/stacked/gyro-stacked.png", "deadlock-stacking-3", 128)
+  end
 end
 
 -- Deadlock crating recipes
@@ -21,8 +24,11 @@ if deadlock_crating then
     deadlock_crating.add_crate("silicon", "deadlock-crating-2")
   end
   if util.me.more_intermediates() then
-    deadlock_crating.add_crate("silicon-wafer", "deadlock-crating-2", 64)
-    deadlock_crating.add_crate("solar-cell", "deadlock-crating-2", 64)
+    deadlock_crating.add_crate("silicon-wafer", "deadlock-crating-2")
+    deadlock_crating.add_crate("solar-cell", "deadlock-crating-2")
+  end
+  if util.me.use_gyros() then
+    deadlock_crating.add_crate("gyro", "deadlock-crating-3")
   end
 end
 
