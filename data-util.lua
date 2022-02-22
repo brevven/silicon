@@ -17,6 +17,12 @@ else
   util.titanium_plate = "titanium-plate"
 end
 
+if mods["pyrawores"] then 
+  util.titanium_processing = "titanium-mk01"
+else
+  util.titanium_processing = "titanium-processing"
+end
+
 function util.fe_plus(sub)
   if mods["FactorioExtended-Plus-"..sub] then
     return true
@@ -64,7 +70,7 @@ end
 function util.remove_prerequisite(technology_name, prerequisite)
   local technology = data.raw.technology[technology_name]
   local index = -1
-  if technology and data.raw.technology[prerequisite] then
+  if technology then
     for i, prereq in pairs(technology.prerequisites) do
       if prereq == prerequisite then
         index = i
@@ -83,7 +89,12 @@ function util.add_effect(technology_name, effect)
   local technology = data.raw.technology[technology_name]
   if technology then
     if not technology.effects then technology.effects = {} end
-    table.insert(technology.effects, effect)
+    if effect and effect.type == "unlock-recipe" then
+      if not data.raw.recipe[effect.recipe] then
+        return
+      end
+      table.insert(technology.effects, effect)
+    end
   end
 end
 
@@ -121,6 +132,29 @@ function util.set_enabled(recipe_name, enabled)
 end
 
 -- Add a given quantity of ingredient to a given recipe
+function util.add_or_add_to_ingredient(recipe_name, ingredient, quantity)
+  if me.bypass[recipe_name] then return end
+  if data.raw.recipe[recipe_name] and data.raw.item[ingredient] then
+    me.add_modified(recipe_name)
+    add_or_add_to_ingredient(data.raw.recipe[recipe_name], ingredient, quantity)
+    add_or_add_to_ingredient(data.raw.recipe[recipe_name].normal, ingredient, quantity)
+    add_or_add_to_ingredient(data.raw.recipe[recipe_name].expensive, ingredient, quantity)
+  end
+end
+
+function add_or_add_to_ingredient(recipe, ingredient, quantity)
+  if recipe ~= nil and recipe.ingredients ~= nil then
+    for i, existing in pairs(recipe.ingredients) do
+      if existing[1] == ingredient or existing.name == ingredient then
+        add_to_ingredient(recipe, ingredient, quantity)
+        return
+      end
+    end
+    table.insert(recipe.ingredients, {ingredient, quantity})
+  end
+end
+
+-- Add a given quantity of ingredient to a given recipe
 function util.add_ingredient(recipe_name, ingredient, quantity)
   if me.bypass[recipe_name] then return end
   if data.raw.recipe[recipe_name] and data.raw.item[ingredient] then
@@ -143,6 +177,58 @@ function add_ingredient(recipe, ingredient, quantity)
   end
 end
 
+-- Add a given ingredient prototype to a given recipe
+function util.add_ingredient_raw(recipe_name, ingredient)
+  if me.bypass[recipe_name] then return end
+  if data.raw.recipe[recipe_name] and (data.raw.item[ingredient.name] or data.raw.item[ingredient[1]]) then
+    me.add_modified(recipe_name)
+    add_ingredient_raw(data.raw.recipe[recipe_name], ingredient)
+    add_ingredient_raw(data.raw.recipe[recipe_name].normal, ingredient)
+    add_ingredient_raw(data.raw.recipe[recipe_name].expensive, ingredient)
+  end
+end
+
+function add_ingredient_raw(recipe, ingredient)
+  if recipe ~= nil and recipe.ingredients ~= nil then
+    for i, existing in pairs(recipe.ingredients) do
+      if (
+          (existing[1] and (existing[1] == ingredient[1] or existing[1] == ingredient.name)) or 
+          (existing.name and (existing.name == ingredient[1] or existing.name == ingredient.name))
+      ) then
+        return
+      end
+    end
+    table.insert(recipe.ingredients, ingredient)
+  end
+end
+
+-- Set an ingredient to a given quantity
+function util.set_ingredient(recipe_name, ingredient, quantity)
+  if me.bypass[recipe_name] then return end
+  if data.raw.recipe[recipe_name] and data.raw.item[ingredient] then
+    me.add_modified(recipe_name)
+    set_ingredient(data.raw.recipe[recipe_name], ingredient, quantity)
+    set_ingredient(data.raw.recipe[recipe_name].normal, ingredient, quantity)
+    set_ingredient(data.raw.recipe[recipe_name].expensive, ingredient, quantity)
+  end
+end
+
+function set_ingredient(recipe, ingredient, quantity)
+  if recipe ~= nil and recipe.ingredients ~= nil then
+    for i, existing in pairs(recipe.ingredients) do
+      if existing[1] == ingredient  then
+        existing[2] = quantity
+        return
+      elseif existing.name == ingredient then
+        existing.amount = quantity
+        existing.amount_min = nil
+        existing.amount_max = nil
+        return
+      end
+    end
+    table.insert(recipe.ingredients, {ingredient, quantity})
+  end
+end
 -- Add a given quantity of product to a given recipe. 
 -- Only works for recipes with multiple products
 function util.add_product(recipe_name, product)
@@ -154,8 +240,15 @@ function util.add_product(recipe_name, product)
 end
 
 function add_product(recipe, product)
-  if recipe ~= nil and recipe.results ~= nil then
-    table.insert(recipe.results, product)
+  if recipe ~= nil then
+    if not recipe.normal then
+      if recipe.results == nil then
+        recipe.results = {{recipe.result, recipe.result_count and recipe.result_count or 1}}
+      end
+      recipe.result = nil
+      recipe.result_count = nil
+      table.insert(recipe.results, product)
+    end
   end
 end
 
@@ -365,6 +458,10 @@ end
 
 -- Remove an element of type t and name from data.raw
 function util.remove_raw(t, name)
+  if not data.raw[t] then 
+    log(t.." not found in data.raw")
+    return
+  end
   if data.raw[t][name] then
     for i, elem in pairs(data.raw[t]) do
       if elem.name == name then 
@@ -431,6 +528,26 @@ function util.set_subgroup(recipe_name, subgroup)
   end
 end
 
+-- Set recipe icons
+function util.set_icons(recipe_name, icons)
+  if me.bypass[recipe_name] then return end
+  if data.raw.recipe[recipe_name] then
+    me.add_modified(recipe_name)
+    data.raw.recipe[recipe_name].icons = icons
+    data.raw.recipe[recipe_name].icon = nil
+    data.raw.recipe[recipe_name].icon_size = nil
+  end
+end
+
+-- Set recipe icons
+function util.set_item_icons(item_name, icons)
+  if data.raw.recipe[item_name] then
+    data.raw.recipe[item_name].icons = icons
+    data.raw.recipe[item_name].icon = nil
+    data.raw.recipe[item_name].icon_size = nil
+  end
+end
+
 function util.set_to_founding(recipe)
   util.set_category(recipe, "founding")
   util.set_subgroup(recipe, "foundry-intermediate")
@@ -441,7 +558,7 @@ function util.add_crafting_category(entity_type, entity, category)
    if data.raw[entity_type][entity] then
       for i, existing in pairs(data.raw[entity_type][entity].crafting_categories) do
         if existing == category then
-          log(entity.." not adding "..new.." -- duplicate")
+          log(entity.." not adding "..category.." -- duplicate")
           return
         end
       end
@@ -465,7 +582,7 @@ function add_to_ingredient(recipe, it, amount)
         return
       end
 			if ingredient[1] == it then
-        ingredient[2] = ingredients[2] + amount
+        ingredient[2] = ingredient[2] + amount
         return
       end
 		end
