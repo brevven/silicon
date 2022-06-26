@@ -1,6 +1,7 @@
 require("recipe-updates")
 require("strange-matter")
 require("recipes/silicon-vulcanite")
+require("compatibility/248k")
 
 if data.raw.resource["stone"] then
   if mods["space-exploration"] then

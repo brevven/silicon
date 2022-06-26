@@ -1,6 +1,6 @@
 {
     "name": "bzsilicon",
-    "version": "0.9.1",
+    "version": "0.10.0",
     "factorio_version": "1.1",
     "title": "Silica & Silicon",
     "author": "Brevven",
@@ -8,6 +8,7 @@
     "homepage": "",
     "dependencies": [
       "? Krastorio2",
+      "? 248k",
       "? modmashsplinterelectronics",
       "(?) IndustrialRevolution",
 	    "base >= 0.18"
