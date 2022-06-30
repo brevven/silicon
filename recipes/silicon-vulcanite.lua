@@ -1,4 +1,11 @@
+local util = require("data-util");
+
 if mods["space-exploration"] then
+  if string.sub(mods["space-exploration"], 1, 3) == "0.6" and data.raw["item-subgroup"]["stone"] then
+    util.set_item_subgroup("silica", "stone")
+    util.set_item_subgroup("silicon", "stone")
+    util.set_subgroup("silicon", "stone")
+  end
   se_delivery_cannon_recipes["silica"] = {name= "silica"}
   if mods["Krastorio2"] then
     recipe = data.raw.recipe["silicon-vulcanite"]
