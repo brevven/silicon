@@ -54,11 +54,11 @@ if mods["space-exploration"] then
     },
     })
     if string.sub(mods["space-exploration"], 1, 3) == "0.6" then
-    table.insert(data.raw.technology["se-vulcanite-smelting"].effects, 
-        {type = "unlock-recipe", recipe= "silicon-smelting-vulcanite"})
+      util.add_effect("se-vulcanite-smelting", {type = "unlock-recipe", recipe= "silicon-smelting-vulcanite"})
+      util.add_effect("se-pyroflux-smelting", {type = "unlock-recipe", recipe= "silicon-smelting-vulcanite"})
     else
-    table.insert(data.raw.technology["se-processing-vulcanite"].effects, 
-        {type = "unlock-recipe", recipe= "silicon-smelting-vulcanite"})
+      table.insert(data.raw.technology["se-processing-vulcanite"].effects, 
+          {type = "unlock-recipe", recipe= "silicon-smelting-vulcanite"})
     end
   end
 end
