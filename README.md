@@ -26,3 +26,4 @@ Thanks to
 - [PlexPt](https://github.com/PlexPt) (zh\_CN)
 - [S3BA](https://github.com/S3BA-pl) (pl)
 - [x2605](https://github.com/x2605) (ko)
+- [Pergamum663](https://github.com/Pergamum663) (ru)
