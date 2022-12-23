@@ -11,3 +11,10 @@ if mods.modmashsplinterelectronics then
   end
   util.add_ingredient("processing-unit", "silicon-wafer", 1)
 end
+
+
+util.add_to_product("vtk-deepcore-mining-ore-chunk-refining-stone-focus", "vtk-deepcore-mining-stone-chunk", 12)
+util.add_to_product("vtk-deepcore-mining-ore-chunk-refining", "vtk-deepcore-mining-stone-chunk", 10)
+util.add_to_product("vtk-deepcore-mining-ore-chunk-refining-no-uranium", "vtk-deepcore-mining-stone-chunk", 10)
+util.set_vtk_dcm_ingredients()
+

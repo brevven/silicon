@@ -29,7 +29,7 @@ data:extend({
     name = "gyro",
     icon = "__bzsilicon__/graphics/icons/gyro.png",
     icon_size = 128,
-    subgroup = "intermediate-product",
+    subgroup = util.se6() and "electronic" or "intermediate-product",
     order = "s[silicon]-z-gyro",
     stack_size = util.get_stack_size(200)
   },

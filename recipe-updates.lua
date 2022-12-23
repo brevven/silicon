@@ -1,4 +1,4 @@
-local util = require("__bzsilicon__.data-util");
+local util = require("data-util");
 
 if util.me.use_gyros() then
   util.add_ingredient("flying-robot-frame", "gyro", 1)
