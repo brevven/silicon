@@ -7,7 +7,7 @@ data:extend(
     name = "optical-fiber",
     icon = "__bzsilicon__/graphics/icons/optical-fiber.png",
     icon_size = 64, icon_mipmaps = 3,
-    subgroup = "intermediate-product",
+    subgroup = util.cablesg,
     order = "a[optical-fiber]",
     stack_size = util.get_stack_size(200)
   },
