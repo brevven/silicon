@@ -4,6 +4,7 @@ Date: 2022-12-24
   Localization:
     - ja locale updates from Sakuro
     - de locale updates from NathanU
+    - zh-CN updates from sunnytan53
 ---------------------------------------------------------------------------------------------------
 Version: 0.11.4
 Date: 2022-08-23

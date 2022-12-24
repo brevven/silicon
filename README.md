@@ -28,3 +28,4 @@ Thanks to
 - [x2605](https://github.com/x2605) (ko)
 - [Pergamum663](https://github.com/Pergamum663) (ru)
 - [NathanU](https://github.com/NathanU) (de)
+- [sunnytan53](https://github.com/sunnytan53) (zh\_CN)
