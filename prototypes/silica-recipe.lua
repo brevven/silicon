@@ -87,7 +87,9 @@ data:extend(
       },
       time = 30
     },
-    order = "b-b"
+    order = "b-b",
+    localised_description = {"", {"technology-description.silica-processing"},
+                             {"technology-description.silica-processing-k2"}}
   } or {
     type = "technology",
     name = "silica-processing",
@@ -109,7 +111,9 @@ data:extend(
       },
       time = 30
     },
-    order = "b-b"
+    order = "b-b",
+    localised_description = {"", {"technology-description.silica-processing"},
+                             {"technology-description.silica-processing-vanilla"}}
   },
 }
 )
