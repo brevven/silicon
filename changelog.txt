@@ -4,6 +4,8 @@ Date: 2022-12-31
   Fixes:
     - SE/K2: Silicon with pyroflux can be made in fluid-enabled furnaces
     - Add tech tree dependency on logistic science pack
+    - SE/K2: Attempt fix of issue where some mod loadouts did not have MEMS gyro in flying robot
+      frame recipe. 
     - K2: Fix compatibility issue with Seb's electrics.
   Localization:
     - K2: Better string for silica processing, for en
