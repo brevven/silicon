@@ -1,6 +1,8 @@
 ---------------------------------------------------------------------------------------------------
 Version: 0.11.6
 Date: 2022-12-31
+  Fixes:
+    - K2: Fix compatibility issue with Seb's electrics.
   Localization:
     - K2: Better string for silica processing, for en
 ---------------------------------------------------------------------------------------------------

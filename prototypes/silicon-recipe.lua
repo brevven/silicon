@@ -1,7 +1,11 @@
 -- Silicon
 local util = require("data-util");
 if mods["Krastorio2"] then
- util.remove_raw("recipe", "silicon-2")
+  util.remove_raw("recipe", "silicon-2")
+  util.remove_recipe_effect("kr-silicon-processing", "silicon-2")
+  if mods["Sebs-Electrics"] then
+    util.add_unlock("kr-silicon-processing", "silicon")
+  end
 end
 
 data:extend(
