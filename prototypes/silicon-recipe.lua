@@ -82,7 +82,7 @@ data:extend(
       },
       time = 30
     },
-    prerequisites = {"silica-processing"},
+    prerequisites = {"silica-processing", "logistic-science-pack"},
     order = "b-b"
   } or nil,
 }
