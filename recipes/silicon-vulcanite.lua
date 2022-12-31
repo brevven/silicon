@@ -14,6 +14,7 @@ if mods["space-exploration"] then
       string.sub(mods["space-exploration"], 1, 3) == "0.6" and 
       {type="fluid", name="se-pyroflux", amount=10} or {"se-vulcanite-block", 1},
     }
+    recipe.category = "smelting" -- now uses pyroflux so can't be kiln in se 0.6
     recipe.energy_required=21.6
     recipe.results = {
       {name = "silicon", amount = 6},
