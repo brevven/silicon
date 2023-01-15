@@ -312,6 +312,21 @@ function util.add_unlock(technology_name, recipe)
   util.add_effect(technology_name, {type="unlock-recipe", recipe=recipe})
 end
 
+-- Check if a tech unlocks a recipe
+function util.check_unlock(technology_name, recipe)
+  local technology = data.raw.technology[technology_name]
+  if technology and technology.effects then
+    for i, effect in pairs(technology.effects) do
+      if effect.type == "unlock-recipe" and effect.recipe == recipe_name then
+        return true
+      end
+    end
+  end
+  return false
+end
+
+
+
 -- remove recipe unlock effect from a given technology, multiple times if necessary
 function util.remove_recipe_effect(technology_name, recipe_name)
     local technology = data.raw.technology[technology_name]
