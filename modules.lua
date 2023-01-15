@@ -1,19 +1,7 @@
 local util = require("__bzsilicon__.data-util");
 
-recipes = {"silica", "silicon", "optical-fiber"}
-if util.me.more_intermediates() then
-  table.insert(recipes, "silicon-wafer")
-  table.insert(recipes, "solar-cell")
-end
-if util.me.use_gyros() then
-  table.insert(recipes, "gyro")
-end
 
-if mods["space-exploration"] then
-  table.insert(recipes, "silicon-smelting-vulcanite")
-end
-
-for i, recipe in pairs(recipes) do
+for i, recipe in pairs(util.me.recipes) do
   if data.raw.recipe[recipe] then
     for j, module in pairs(data.raw.module) do
       if module.effect then
