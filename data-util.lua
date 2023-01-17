@@ -546,6 +546,21 @@ function util.get_amount(recipe_name, product)
   return 0
 end
 
+-- Get the count of results
+function util.get_result_count(recipe_name, product)
+  if not product then product = recipe_name end
+  local recipe = data.raw.recipe[recipe_name]
+  if recipe then
+    if recipe.normal and recipe.normal.results then
+      return #(recipe.normal.results)
+    elseif recipe.results then
+      return #(recipe.results)
+    end
+    return 1
+  end
+  return 0
+end
+
 -- Replace one ingredient with another in a recipe
 --    Use amount to set an amount. If that amount is a multiplier instead of an exact amount, set multiply true.
 function util.replace_ingredient(recipe_name, old, new, amount, multiply, options)
