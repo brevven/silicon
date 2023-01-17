@@ -1,10 +1,10 @@
 ---------------------------------------------------------------------------------------------------
 Version: 0.11.8
-Date: 2023-01-15
+Date: 2023-01-17
   Fixes:
     - Add optional depenency on aai-industry to fix some mod load order discrepancies
   Features:
-    - Support for Crafting Efficieny mod
+    - (Beta) Support for Crafting Efficieny mod
 ---------------------------------------------------------------------------------------------------
 Version: 0.11.7
 Date: 2023-01-01
