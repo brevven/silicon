@@ -13,8 +13,10 @@ See changelog.
 - [snouz](https://github.com/snouz) (graphics)
 
 ### Thanks to 
-- [GeneralTank](https://mods.factorio.com/user/GeneralTank) (code contribution for stacking and crating, design contributions)
+- [GeneralTank](https://mods.factorio.com/user/GeneralTank) (compatibility for stacking and crating, design contributions)
 - [ZombieMooose](https://mods.factorio.com/user/ZombieMooose) (design contributions)
+- [nihilistzsche](https://github.com/nihilistzsche) (compatibility)
+
 
 ### Localization
 
