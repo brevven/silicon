@@ -3,6 +3,9 @@ Version: 0.11.11
 Date: 2023-04-23
   Fixes:
     - Fix some typos
+  Changes:
+    - K2: Silica matter recipe balance
+    - SE+K2: Silica matter recipe requires stabilizer
 ---------------------------------------------------------------------------------------------------
 Version: 0.11.10
 Date: 2023-02-12
