@@ -1,5 +1,4 @@
 require("deadlock-stacking")
-require("modules")
 
 local util = require("__bzsilicon__.data-util");
  
