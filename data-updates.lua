@@ -6,10 +6,10 @@ require("compatibility/crafting-efficiency")
 
 if data.raw.resource["stone"] then
   if mods["space-exploration"] then
-    local noise = require('noise');
-    -- Increase richness of stone a bit
-    data.raw.resource["stone"].autoplace.richness_expression = 
-      data.raw.resource["stone"].autoplace.richness_expression * noise.to_noise_expression(4/3)
+    -- local noise = require('noise');
+    -- -- Increase richness of stone a bit
+    -- data.raw.resource["stone"].autoplace.richness_expression = 
+    --   data.raw.resource["stone"].autoplace.richness_expression  noise.to_noise_expression(4/3)
   else
     log("Replacing vanilla stone autoplace")
     local resource_autoplace = require('resource-autoplace');

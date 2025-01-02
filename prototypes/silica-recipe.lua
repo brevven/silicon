@@ -8,48 +8,44 @@ data:extend(
     category = "crushing",
     enabled = false,
     energy_required = 4,
-    ingredients = {{"quartz", 10}},
-    result = "silica",
-    result_count = 30
+    allow_productivity = true,
+    ingredients = {util.item("quartz", 10)},
+    results = {util.item("silica", 30)}
   } or util.me.use_bio_crushed_stone() and {
     type = "recipe",
     name = "silica",
     category = "smelting",
     enabled = false,
     energy_required = 6,
-    ingredients = {{"stone-crushed", 4}},
-    result = "silica",
-    result_count = 5,
+    allow_productivity = true,
+    ingredients = {util.item("stone-crushed", 4)},
+    results = {util.item("silica", 5)},
   } or mods["omnimatter"] and {
     type = "recipe",
     name = "silica",
     category = "smelting",
     enabled = false,
     energy_required = 6,
-    ingredients = {{"stone-crushed", 4}},
-    result = "silica",
-    result_count = 5,
+    allow_productivity = true,
+    ingredients = {util.item("stone-crushed", 4)},
+    results = {util.item("silica", 5)},
   } or
   {
     type = "recipe",
     name = "silica",
-    category = "smelting",
-    normal = 
-    {
-      enabled = false,
-      energy_required = 3.2,
-      ingredients = {{"stone-brick", 1}},
-      result = "silica",
-      result_count = 5
-    },
-    expensive =
-    {
-      enabled = false,
-      energy_required = 6.4,
-      ingredients = {{"stone-brick", 2}},
-      result = "silica",
-      result_count = 5
-    },
+    category = mods["space-age"] and "basic-crushing" or "smelting",
+    enabled = false,
+    energy_required = 3.2,
+    allow_productivity = true,
+    ingredients = mods["space-age"] and {util.item("stone", 2)} or {util.item("stone-brick", 1)},
+    results = {util.item("silica", 5)}
+    -- expensive =
+    -- {
+    --   enabled = false,
+    --   energy_required = 6.4,
+    --   ingredients = {util.item("stone-brick", 2)},
+    --   results = {util.item("silica", 5)}
+    -- },
     
   },
   {

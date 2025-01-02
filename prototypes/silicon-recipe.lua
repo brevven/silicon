@@ -16,32 +16,29 @@ data:extend(
     category = "smelting",
     enabled = false,
     energy_required = 14.4,
+    allow_productivity = true,
     ingredients = {
-      {"silica", 18},
-      {"coke", 1}
+      util.item("silica", 18),
+      util.item("coke", 1),
     },
-    result = "silicon",
-    result_count = 3
+    results = {util.item("silicon", 3)}
   } or {
     type = "recipe",
     name = "silicon",
     category = "smelting",
-    normal = 
-    {
-      enabled = false,
-      energy_required = 3.2,
-      ingredients = {{"silica", 10}},
-      result = "silicon",
-      result_count = 1
-    },
-    expensive =
-    {
-      enabled = false,
-      energy_required = 3.2,
-      ingredients = {{"silica", 10}},
-      result = "silicon",
-      result_count = 1
-    },
+    enabled = false,
+    energy_required = 3.2,
+    allow_productivity = true,
+    ingredients = {util.item("silica", 10)},
+    results = {util.item("silicon", 1)}
+    -- expensive =
+    -- {
+    --   enabled = false,
+    --   energy_required = 3.2,
+    --   ingredients = {{"silica", 10}},
+    --   result = "silicon",
+    --   result_count = 1
+    -- },
     
   },
   (not mods["Krastorio2"]) and 
@@ -105,6 +102,7 @@ data:extend({
     subgroup = "intermediate-product",
     enabled = false,
     energy_required = 20,
+    allow_productivity = true,
     ingredients = (mods["Krastorio2"] and {
       {type= "item", name="silicon", amount=20},
       {type= "fluid", name="hydrogen-chloride", amount=50},
@@ -112,8 +110,7 @@ data:extend({
       {type= "item", name="silicon", amount=20},
       {type= "fluid", name="sulfuric-acid", amount=50},
     }),
-    result = "silicon-wafer",
-    result_count = 10,
+    results = {util.item("silicon-wafer", 10)}
   },
   {
     type = "item",
@@ -131,6 +128,7 @@ data:extend({
     subgroup = "intermediate-product",
     enabled = false,
     energy_required = 2,
+    allow_productivity = true,
     ingredients = (mods["bzlead"] and not mods["angelssmelting"] and {
       {type= "item", name="silicon", amount=1},
       {type= "item", name="electronic-circuit", amount=1},
@@ -139,8 +137,7 @@ data:extend({
       {type= "item", name="silicon", amount=1},
       {type= "item", name="electronic-circuit", amount=1},
     }),
-    result = "solar-cell",
-    result_count = 2,
+    results = {util.item("solar-cell", 2)}
   },
 })
 

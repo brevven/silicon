@@ -14,20 +14,16 @@ data:extend(
   {
     type = "recipe",
     name = "optical-fiber",
-    normal = 
-    {
-      enabled = false,
-      ingredients = {{"silica", 1}},
-      result = "optical-fiber",
-      result_count = 1
-    },
-    expensive =
-    {
-      enabled = false,
-      ingredients = {{"silica", 2}},
-      result = "optical-fiber",
-      result_count = 1
-    },
+    enabled = false,
+    allow_productivity = true,
+    ingredients = {util.item("silica", 1)},
+    results = {util.item("optical-fiber",  1)},
+    -- expensive =
+    -- {
+    --   enabled = false,
+    --   ingredients = {{"silica", 2}},
+    --   results = {util.item("optical-fiber",  1)},
+    -- },
   },
 
   {
@@ -52,7 +48,7 @@ data:extend(
       },
       time = 10
     },
-    prerequisites = {"optics", "silica-processing"},
+    prerequisites = {"lamp", "silica-processing"},
     order = "b-b"
   },
 }

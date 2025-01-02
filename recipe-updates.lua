@@ -37,6 +37,8 @@ if util.me.use_gyros() then
   util.add_ingredient("se-thruster-suit-2", "gyro", 2)
 end
 
+util.replace_some_ingredient("space-platform-foundation", "copper-cable", 10, "optical-fiber", 10)
+
 
 if not mods["Krastorio2"] then
   util.remove_ingredient("concrete", "stone-brick");
@@ -72,11 +74,11 @@ if not mods["Krastorio2"] then
     end
     util.replace_ingredient("solar-panel-equipment", "solar-panel", "solar-cell")
     
-    if not mods.modmashsplinterelectronics then
+    if not mods.modmashsplinterelectonics then
       util.multiply_recipe("advanced-circuit", 3)
       util.replace_some_ingredient("advanced-circuit", "electronic-circuit", 3, "silicon-wafer", 1)
     end
-    util.add_prerequisite("advanced-electronics", util.me.silicon_processing)
+    util.add_prerequisite("advanced-circuit", util.me.silicon_processing)
 
   else
     util.replace_some_ingredient("solar-panel", "electronic-circuit", 10, "silicon", 10)
@@ -90,7 +92,10 @@ if not mods["Krastorio2"] then
     util.remove_ingredient("speed-module", "electronic-circuit")
     util.add_ingredient("speed-module", "silicon", 3)
 
-    util.add_prerequisite("advanced-electronics-2", util.me.silicon_processing)
+    if not mods.modmashsplinterelectonics then
+      util.replace_some_ingredient("advanced-circuit", "electronic-circuit", 1, "silicon", 1)
+    end
+    util.add_prerequisite("advanced-circuit", util.me.silicon_processing)
   end
 
   util.add_prerequisite("solar-energy", "silicon-processing")
@@ -145,6 +150,7 @@ util.add_ingredient("arithmetic-combinator", "optical-fiber", 1)
 util.add_ingredient("constant-combinator", "optical-fiber", 1)
 util.add_ingredient("decider-combinator", "optical-fiber", 1)
 util.add_ingredient("programmable-speaker", "optical-fiber", 1)
+util.add_ingredient("display-panel", "optical-fiber", 1)
 if mods["UsefulCombinators"] then
   for i, v in ipairs(useful_combinators) do
     util.add_ingredient(v, "optical-fiber", 1)
@@ -231,8 +237,8 @@ if mods["extended-research-system"] and mods["Bio_Industries"] then
       category = "crafting",
       enabled = true,
       energy_required = 6,
-      ingredients = {{"iron-plate", 100}, {"iron-gear-wheel", 5}},
-      result = "bi-stone-crusher",
+      ingredients = {util.item("iron-plate", 100), util.item("iron-gear-wheel", 5)},
+      results = util.item("bi-stone-crusher"),
     }})
   if data.raw.recipe["bi-crushed-stone-1"] then
     data.raw.recipe["bi-crushed-stone-1"].enabled = true
