@@ -49,7 +49,8 @@ data:extend(
     icon_size = 64, icon_mipmaps = 3,
     subgroup = "raw-material",
     order = "b[silicon]",
-    stack_size = util.get_stack_size(100)
+    stack_size = util.get_stack_size(100),
+    weight = 1*kg,
   } or nil,
   (not mods["Krastorio2"]) and 
   {
@@ -94,6 +95,7 @@ data:extend({
     subgroup = "intermediate-product",
     stack_size = util.get_stack_size(100),
     order = "s[silicon]-silicon-wafer",
+    weight = 1*kg,
   },
   {
     type = "recipe",
@@ -147,6 +149,7 @@ data:extend({
     subgroup = "intermediate-product",
     stack_size = util.get_stack_size(100),
     order = "s[silicon]-solar-cell",
+    weight = 0.5*kg,
   },
   {
     type = "recipe",

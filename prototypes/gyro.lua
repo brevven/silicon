@@ -30,7 +30,8 @@ data:extend({
     icon_size = 128,
     subgroup = util.se6() and "electronic" or "intermediate-product",
     order = "s[silicon]-z-gyro",
-    stack_size = util.get_stack_size(200)
+    stack_size = util.get_stack_size(200),
+    weight = 0.5*kg,
   },
   {
     type = "recipe",

@@ -77,7 +77,7 @@ data:extend({
     drop_sound = item_sounds.drill_inventory_move,
     place_result = "basic-crusher",
     stack_size = 10,
-    weight = 100*kg
+    weight = 50*kg
   },
   {
     type = "furnace",

@@ -267,6 +267,7 @@ data:extend({
     fuel_value = "1MJ",
     spoil_ticks = 1*60*60*60,
     spoil_result = "razorgrass-dried",
+    weight = 1*kg,
   },
   {
     type = "item",

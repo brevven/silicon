@@ -55,7 +55,8 @@ data:extend(
     icon_size = 64, icon_mipmaps = 3,
     subgroup = "raw-material",
     order = "b[silica]",
-    stack_size = util.get_stack_size(100)
+    stack_size = util.get_stack_size(100),
+    weight = 0.2*kg,
   },
   mods["Krastorio2"] and {
     type = "technology",

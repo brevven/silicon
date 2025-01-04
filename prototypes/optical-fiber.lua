@@ -9,7 +9,8 @@ data:extend(
     icon_size = 64, icon_mipmaps = 3,
     subgroup = util.cablesg,
     order = "a[optical-fiber]",
-    stack_size = util.get_stack_size(200)
+    stack_size = util.get_stack_size(200),
+    weight = 1*kg,
   },
   {
     type = "recipe",
