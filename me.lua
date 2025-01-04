@@ -1,6 +1,7 @@
 local me = {} 
 me.name = "bzsilicon"
-me.silicon_processing = mods["Krastorio2"] and "kr-silicon-processing" or "silicon-processing"
+me.resources = {"razorgrass"}
+me.silicon_processing = (mods and mods["Krastorio2"] and "kr-silicon-processing") or "silicon-processing"
 me.recipes = {"silica", "silicon", "optical-fiber", "silicon-wafer", "solar-cell", "gyro", "silicon-smelting-vulcanite"}
 
 function me.use_gyros()

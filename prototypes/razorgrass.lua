@@ -3,6 +3,7 @@ local util = require("data-util")
 
 
 if mods["space-age"] then
+data.raw.planet.gleba.map_gen_settings.autoplace_settings.entity.settings["razorgrass"] = {}
 local space_age_item_sounds = require("__space-age__.prototypes.item_sounds")
 local function razorgrass_variations()
   local variation_count = 8 --variation_count or 5
