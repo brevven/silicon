@@ -173,5 +173,5 @@ data:extend({
 if not mods["space-age"] then
   util.add_unlock("silicon-processing", "silicone")
 end
-util.add_effect("kr-fluids-chemistry", {type="unlock-recipe", recipe="hydrogen-chloride"})
 end
+util.add_effect("kr-fluids-chemistry", {type="unlock-recipe", recipe="hydrogen-chloride"})
