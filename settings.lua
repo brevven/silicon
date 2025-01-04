@@ -15,6 +15,9 @@ data:extend( {
     allowed_values = {"yes", "no"},
     order = "a-a",
 	},
+})
+if mods.Bio_Industries then
+data:extend( {
   {
 		type = "bool-setting",
 		name = "bzsilicon-bio-crushed-stone",
@@ -23,3 +26,4 @@ data:extend( {
     order = "z-a"
 	},
 })
+end
