@@ -7,13 +7,14 @@
     "contact": "",
     "homepage": "",
     "dependencies": [
+      "? space-age",
       "? Krastorio2",
       "? space-exploration",
       "? 248k",
       "? aai-industry",
       "? modmashsplinterelectronics",
       "(?) IndustrialRevolution",
-	    "base >= 0.18"
+	    "base"
     ],
     "description": "Adds simple Silica and Silicon to the game, along with basic fiber optics.\n\nCompatible with Krastorio 2, Space Exploration, and more. A standalone piece of BZ Mods.\n\nWith graphics by snouz."
 }
