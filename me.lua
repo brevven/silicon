@@ -4,13 +4,12 @@ me.silicon_processing = mods["Krastorio2"] and "kr-silicon-processing" or "silic
 me.recipes = {"silica", "silicon", "optical-fiber", "silicon-wafer", "solar-cell", "gyro", "silicon-smelting-vulcanite"}
 
 function me.use_gyros()
-  if me.get_setting("bz-all-intermediates") then return true end
-  return me.get_setting("bzsilicon-more-intermediates") == "more"
+  return me.more_intermediates()
 end
 
 function me.more_intermediates()
   if me.get_setting("bz-all-intermediates") then return true end
-  return mods["Bio_Industries"] or me.get_setting("bzsilicon-more-intermediates") == "yes" or me.use_gyros()
+  return mods["Bio_Industries"] or me.get_setting("bzsilicon-more-intermediates") == "yes"
 end
 
 function me.use_bio_crushed_stone()

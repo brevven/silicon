@@ -1,5 +1,6 @@
 local util = require("data-util");
 
+local si = util.me.more_intermediates() and "silicon-wafer" or "silicon"
 if util.me.use_gyros() then
   util.add_ingredient("flying-robot-frame", "gyro", 1)
   util.add_prerequisite("robotics", "gyro")
@@ -51,19 +52,23 @@ if not mods["Krastorio2"] then
   util.add_prerequisite("concrete", "silica-processing")
 
   if util.me.more_intermediates() then 
-    util.replace_some_ingredient("processing-unit", "electronic-circuit", 10, "silicon-wafer", 3)
+    util.replace_some_ingredient("processing-unit", "electronic-circuit", 10, "silicon-wafer", 10)
 
-    util.multiply_recipe("effectivity-module", 2)
-    util.remove_ingredient("effectivity-module", "electronic-circuit")
-    util.add_ingredient("effectivity-module", "silicon-wafer", 3)
+    util.multiply_recipe("efficiency-module", 2)
+    util.remove_ingredient("efficiency-module", "electronic-circuit")
+    util.add_ingredient("efficiency-module", "silicon-wafer", 5)
+
+    util.multiply_recipe("quality-module", 2)
+    util.remove_ingredient("quality-module", "electronic-circuit")
+    util.add_ingredient("quality-module", "silicon-wafer", 5)
 
     util.multiply_recipe("productivity-module", 2)
     util.remove_ingredient("productivity-module", "electronic-circuit")
-    util.add_ingredient("productivity-module", "silicon-wafer", 3)
+    util.add_ingredient("productivity-module", "silicon-wafer", 5)
 
     util.multiply_recipe("speed-module", 2)
     util.remove_ingredient("speed-module", "electronic-circuit")
-    util.add_ingredient("speed-module", "silicon-wafer", 3)
+    util.add_ingredient("speed-module", "silicon-wafer", 5)
 
     if mods.IndustrialRevolution then
       util.add_ingredient("solar-panel", "solar-cell", 9)
@@ -76,7 +81,7 @@ if not mods["Krastorio2"] then
     
     if not mods.modmashsplinterelectonics then
       util.multiply_recipe("advanced-circuit", 3)
-      util.replace_some_ingredient("advanced-circuit", "electronic-circuit", 3, "silicon-wafer", 1)
+      util.replace_some_ingredient("advanced-circuit", "electronic-circuit", 3, "silicon-wafer", 3)
     end
     util.add_prerequisite("advanced-circuit", util.me.silicon_processing)
 
@@ -124,24 +129,24 @@ util.replace_ingredient("red-wire", "copper-cable", "optical-fiber")
 util.replace_ingredient("red-wire", "electronic-circuit", "silicon")
 
 if not mods["IndustrialRevolution"] then
-  util.add_ingredient("arithmetic-combinator", "silicon", 1)
-  util.add_ingredient("constant-combinator", "silicon", 1)
-  util.add_ingredient("decider-combinator", "silicon", 1)
-  util.add_ingredient("programmable-speaker", "silicon", 1)
+  util.add_ingredient("arithmetic-combinator", si, 1)
+  util.add_ingredient("constant-combinator", si, 1)
+  util.add_ingredient("decider-combinator", si, 1)
+  util.add_ingredient("programmable-speaker", si, 1)
   if mods["UsefulCombinators"] then
     for i, v in ipairs(useful_combinators) do
-      util.add_ingredient(v, "silicon", 1)
+      util.add_ingredient(v, si, 1)
     end
   end
   if mods["crafting_combinator"] then
-    util.add_ingredient("crafting_combinator:crafting-combinator", "silicon", 1)
-    util.add_ingredient("crafting_combinator:recipe-combinator", "silicon", 1)
+    util.add_ingredient("crafting_combinator:crafting-combinator", si, 1)
+    util.add_ingredient("crafting_combinator:recipe-combinator", si, 1)
   end
-  util.add_ingredient("clock-combinator", "silicon", 1)
-  util.add_ingredient("power-meter-combinator", "silicon", 1)
-  util.add_ingredient("ghost-scanner", "silicon", 1)
-  util.add_ingredient("item-sensor", "silicon", 1)
-  util.add_ingredient("bi-pollution-sensor", "silicon", 1)
+  util.add_ingredient("clock-combinator", si, 1)
+  util.add_ingredient("power-meter-combinator", si, 1)
+  util.add_ingredient("ghost-scanner", si, 1)
+  util.add_ingredient("item-sensor", si, 1)
+  util.add_ingredient("bi-pollution-sensor", si, 1)
 else
   util.add_prerequisite("circuit-network", "fiber-optics")
 end
@@ -168,11 +173,11 @@ util.add_ingredient("bi-pollution-sensor", "optical-fiber", 1)
 
 -- Transport Drones
 util.add_ingredient("road-network-reader", "optical-fiber", 5)
-util.replace_some_ingredient("road-network-reader", "electronic-circuit", 5, "silicon", 5)
+util.replace_some_ingredient("road-network-reader", "electronic-circuit", 5, si, 5)
 util.add_ingredient("transport-depot-reader", "optical-fiber", 5)
-util.replace_some_ingredient("transport-depot-reader", "electronic-circuit", 5, "silicon", 5)
+util.replace_some_ingredient("transport-depot-reader", "electronic-circuit", 5, si, 5)
 util.add_ingredient("transport-depot-writer", "optical-fiber", 5)
-util.replace_some_ingredient("transport-depot-writer", "electronic-circuit", 5, "silicon", 5)
+util.replace_some_ingredient("transport-depot-writer", "electronic-circuit", 5, si, 5)
 
 
 util.add_prerequisite("circuit-network", "fiber-optics")
@@ -222,11 +227,7 @@ if mods["space-exploration"] then
 end
 
 if mods["zombiesextended-core"] then
-  if util.me.more_intermediates() then 
-    util.add_ingredient("complex-processing-unit", "silicon-wafer", 1)
-  else
-    util.add_ingredient("complex-processing-unit", "silicon", 2)
-  end
+  util.add_ingredient("complex-processing-unit", si, 2)
 end
 
 

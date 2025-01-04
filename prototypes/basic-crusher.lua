@@ -171,7 +171,7 @@ data:extend({
       {type = "item", name = "iron-gear-wheel", amount = 10},
 
     },
-    energy_required = 5,
+    energy_required = 2.5,
     results = {{type="item", name="basic-crusher", amount=1}}
   },
 })

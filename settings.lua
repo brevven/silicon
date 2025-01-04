@@ -5,18 +5,21 @@ data:extend( {
 		setting_type = "startup",
 		default_value = "",
     allow_blank = true,
+    order = "a-b",
 	},
   {
 		type = "string-setting",
 		name = "bzsilicon-more-intermediates",
 		setting_type = "startup",
 		default_value = "no",
-    allowed_values = {"more", "yes", "no"},
+    allowed_values = {"yes", "no"},
+    order = "a-a",
 	},
   {
 		type = "bool-setting",
 		name = "bzsilicon-bio-crushed-stone",
 		setting_type = "startup",
 		default_value = true,
+    order = "z-a"
 	},
 })

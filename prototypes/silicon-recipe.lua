@@ -110,7 +110,7 @@ data:extend({
       {type= "item", name="silicon", amount=20},
       {type= "fluid", name="sulfuric-acid", amount=50},
     }),
-    results = {util.item("silicon-wafer", 10)}
+    results = {util.item("silicon-wafer", 30)}
   },
   {
     type = "item",
