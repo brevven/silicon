@@ -40,6 +40,19 @@ end
 
 util.replace_some_ingredient("space-platform-foundation", "copper-cable", 10, "optical-fiber", 10)
 
+if data.raw.item["silicone"] then
+  util.add_ingredient("stack-inserter", "silicone", 1)
+  util.add_ingredient("mech-armor", "silicone", 50)
+  util.add_ingredient("cryogenic-plant", "silicone", 20)
+  util.add_ingredient("capture-bot-rocket", "silicone", 2)
+  util.add_ingredient("biolab", "silicone", 1)
+  util.add_prerequisite("biochamber", "razorgrass")
+  util.add_ingredient("spidertron", "silicone", 8)
+  util.add_ingredient("fusion-reactor-equipment", "silicone", 10)
+  util.add_ingredient("fusion-power-cell", "silicone", 1)
+  util.replace_some_ingredient("biolubricant", "jelly", 10, "silicone", 5)
+end
+
 
 if not mods["Krastorio2"] then
   util.remove_ingredient("concrete", "stone-brick");

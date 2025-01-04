@@ -114,6 +114,33 @@ data:extend({
   },
   {
     type = "item",
+    name = "silicone",
+    icons = {{
+    icon = "__bzsilicon__/graphics/icons/silicon.png",
+    icon_size = 64, tint = {.8, 1, 1, .8},
+    }},
+    subgroup = "intermediate-product",
+    stack_size = util.get_stack_size(100),
+    order = "s[silicon]-silicone",
+  },
+  {
+    type = "recipe",
+    name = "silicone",
+    category = "crafting-with-fluid",
+    subgroup = "intermediate-product",
+    category = mods["space-age"] and "organic-or-chemistry" or "chemistry",
+    enabled = false,
+    energy_required = 10,
+    allow_productivity = true,
+    ingredients = {
+      {type= "item", name="silicon", amount=10},
+      {type= "item", name="copper-plate", amount=1},
+      {type= "fluid", name="water", amount=20},
+    },
+    results = {util.item("silicone", 5)}
+  },
+  {
+    type = "item",
     name = "solar-cell",
     icon = "__bzsilicon__/graphics/icons/solar-cell.png",
     icon_size = 64, icon_mipmaps = 3,
@@ -130,16 +157,18 @@ data:extend({
     energy_required = 2,
     allow_productivity = true,
     ingredients = (mods["bzlead"] and not mods["angelssmelting"] and {
-      {type= "item", name="silicon", amount=1},
+      {type= "item", name="silicon-wafer", amount=1},
       {type= "item", name="electronic-circuit", amount=1},
       {type= "item", name="lead-plate", amount=1},
     } or {
-      {type= "item", name="silicon", amount=1},
+      {type= "item", name="silicon-wafer", amount=1},
       {type= "item", name="electronic-circuit", amount=1},
     }),
     results = {util.item("solar-cell", 2)}
   },
 })
-
+if not mods["space-age"] then
+  util.add_unlock("silicon-processing", "silicone")
+end
 util.add_effect("kr-fluids-chemistry", {type="unlock-recipe", recipe="hydrogen-chloride"})
 end

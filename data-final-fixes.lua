@@ -11,6 +11,15 @@ if mods.modmashsplinterelectronics then
   util.add_ingredient("processing-unit", "silicon-wafer", 1)
 end
 
+if mods["space-age"] then
+-- If furnaces are treated as furnaces, we need 2 outputs
+for i, entity in pairs(data.raw.furnace) do
+  if entity.result_inventory_size ~= nil and entity.result_inventory_size < 2 and util.contains(entity.crafting_categories, "smelting") then
+    entity.result_inventory_size = 2
+  end
+end
+end 
+
 
 util.add_to_product("vtk-deepcore-mining-ore-chunk-refining-stone-focus", "vtk-deepcore-mining-stone-chunk", 12)
 util.add_to_product("vtk-deepcore-mining-ore-chunk-refining", "vtk-deepcore-mining-stone-chunk", 10)
