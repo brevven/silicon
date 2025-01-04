@@ -1,4 +1,15 @@
 ---------------------------------------------------------------------------------------------------
+Version: 2.0.0
+Date: 2025-01-03
+  Changes:
+    - Compatible with 2.0 and Space Age
+    - More intermediate recipes setting now only has yes/no options.
+    - Changes to silicon wafers
+    - New intermediate when setting is active: silicone. Silicone is handled a bit differently between vanilla and Space Age. 
+    - With space age enabled, add a small crusher for making silica directly from stone.
+    - New plant for Space Age, Razorgrass. Used in silica production chain on Gleba. (Can use command "/bz-regenerate gleba razorgrass" when adding to existing game)
+    - Recipe for making extra stone on Vulcanus.
+---------------------------------------------------------------------------------------------------
 Version: 0.11.12
 Date: 2024-01-13
   Localization:
