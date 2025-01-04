@@ -117,18 +117,18 @@ data:extend({
   {
     type = "item",
     name = "silicone",
-    icons = {{
-    icon = "__bzsilicon__/graphics/icons/silicon.png",
-    icon_size = 64, tint = {.8, 1, 1, .8},
-    }},
+    icon = "__bzsilicon__/graphics/icons/silicone.png",
+    icon_size = 64,
     subgroup = "intermediate-product",
     stack_size = util.get_stack_size(100),
     order = "s[silicon]-silicone",
+    weight = 2*kg,
   },
   {
     type = "recipe",
     name = "silicone",
-    category = "crafting-with-fluid",
+    icon = "__bzsilicon__/graphics/icons/silicone-recipe.png",
+    icon_size = 128,
     subgroup = "intermediate-product",
     category = mods["space-age"] and "organic-or-chemistry" or "chemistry",
     enabled = false,
