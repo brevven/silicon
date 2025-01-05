@@ -58,20 +58,16 @@ graphics.working_visualisations.layers.east_animation.shift[2] = graphics.workin
 graphics.working_visualisations.layers.west_animation.shift[1] = graphics.working_visualisations.layers.west_animation.shift[1] * 0.5
 graphics.working_visualisations.layers.west_animation.shift[2] = graphics.working_visualisations.layers.west_animation.shift[2] * 0.5
 
-if not data.raw["recipe-category"]["basic-crushing"] then
-  data:extend({{
-    type="recipe-category",
-    name="basic-crushing",
-  }})
-end
+
+util.add_new_crafting_category("basic-crushing", true)
 
 data:extend({
   {
     type = "item",
     name = "basic-crusher",
     icon = "__space-age__/graphics/icons/crusher.png",
-    subgroup = "space-platform",
-    order = "e[crusher]",
+    subgroup = "production-machine",
+    order = "s[crusher]",
     inventory_move_sound = item_sounds.drill_inventory_move,
     pick_sound = item_sounds.drill_inventory_pickup,
     drop_sound = item_sounds.drill_inventory_move,
