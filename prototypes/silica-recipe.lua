@@ -92,6 +92,7 @@ data:extend(
     name = "silica-processing",
     icon_size = 256, icon_mipmaps = 4,
     icon = "__bzsilicon__/graphics/technology/silica-processing.png",
+    prerequisites = {"logistic-science-pack"},
     effects =
     {
       {
@@ -105,6 +106,7 @@ data:extend(
       ingredients =
       {
         {"automation-science-pack", 1},
+        {"logistic-science-pack", 1},
       },
       time = 30
     },

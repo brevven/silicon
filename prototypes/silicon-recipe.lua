@@ -7,6 +7,13 @@ if mods["Krastorio2"] then
     util.add_unlock("kr-silicon-processing", "silicon")
   end
 end
+local prerequisites = {}
+
+if util.me.more_intermediates() and mods["space-age"] then
+  prerequisites = {"silica-processing", "sulfur-processing"}
+else
+  prerequisites = {"silica-processing", "logistic-science-pack"}
+end
 
 data:extend(
 {
@@ -80,7 +87,7 @@ data:extend(
       },
       time = 30
     },
-    prerequisites = {"silica-processing", "logistic-science-pack"},
+    prerequisites = prerequisites,
     order = "b-b"
   } or nil,
 }
@@ -130,7 +137,7 @@ data:extend({
     icon = "__bzsilicon__/graphics/icons/silicone-recipe.png",
     icon_size = 128,
     subgroup = "intermediate-product",
-    category = mods["space-age"] and "organic-or-chemistry" or "chemistry",
+    category = mods["space-age"] and "organic-or-chemistry" or "crafting-with-fluid",
     enabled = false,
     energy_required = 10,
     allow_productivity = true,
@@ -154,7 +161,7 @@ data:extend({
   {
     type = "recipe",
     name = "solar-cell",
-    category = "crafting-with-fluid",
+    category = "crafting",
     subgroup = "intermediate-product",
     enabled = false,
     energy_required = 2,
@@ -175,3 +182,10 @@ if not mods["space-age"] then
 end
 end
 util.add_effect("kr-fluids-chemistry", {type="unlock-recipe", recipe="hydrogen-chloride"})
+
+if util.me.more_intermediates() and not mods["space-age"] then
+  util.add_unlock("advanced-circuit", "silicon-wafer")
+  util.add_prerequisite("advanced-circuit", "sulfur-processing")
+  util.add_prerequisite("circuit-network", "advanced-circuit")
+  util.add_prerequisite("solar-energy", "advanced-circuit")
+end

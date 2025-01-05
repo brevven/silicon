@@ -57,6 +57,8 @@ if data.raw.item["silicone"] then
     util.add_ingredient("lubricant", "silicone", 1)
     util.replace_some_ingredient("engine-unit", "pipe", 1, "silicone", 1)
     util.add_prerequisite("engine", "silicon-processing")
+    util.remove_prior_unlocks("advanced-circuit", "silicon-wafer")
+    util.add_prerequisite("silicon-processing", "automation-2")
     util.add_ingredient("power-armor", "silicone", 20)
     util.add_ingredient("exoskeleton-equipment", "silicone", 10)
     util.add_ingredient("fission-reactor-equipment", "silicone", 80)

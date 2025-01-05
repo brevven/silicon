@@ -172,4 +172,5 @@ data:extend({
   },
 })
 util.add_unlock("automation-2", "basic-crusher")
+util.add_prerequisite("silica-processing", "automation-2")
 end
