@@ -1648,4 +1648,3 @@ function util.redo_recycling()
   end
 end
 return util
-
