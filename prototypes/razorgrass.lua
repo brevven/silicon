@@ -13,9 +13,12 @@ local function razorgrass_variations()
   local height = 800
   local variations = {}
   local shift = futil.by_pixel(0,-60) -- shift or futil.by_pixel(52, -40)
+  local sshift = futil.by_pixel(60, -4)
   for i = 1, variation_count do
     local x = ((i - 1) % per_row) * width
     local y = math.floor((i-1)/per_row) * height
+    local sx = ((i - 1) % per_row) * height -- Shadow images are rotated
+    local sy = math.floor((i-1)/per_row) * width -- Shadow images are rotated
     local variation = {
       trunk = {
         filename = "__bzsilicon__/graphics/entity/razorgrass.png",
@@ -63,11 +66,11 @@ local function razorgrass_variations()
           "__bzsilicon__/graphics/entity/razorgrass-shadow.png",
           "__bzsilicon__/graphics/entity/razorgrass-shadow2.png",
         },
-        width = width,
-        height = height,
-        x = x,
-        y = y,
-        shift = shift,
+        width = height,  --shadows are rotated
+        height = width,  --shadows are rotated
+        x = sx,
+        y = sy,
+        shift = sshift,
         scale = 0.33 * scale_multiplier
       },
 
