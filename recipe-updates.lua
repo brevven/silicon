@@ -38,7 +38,8 @@ if util.me.use_gyros() then
   util.add_ingredient("se-thruster-suit-2", "gyro", 2)
 end
 
-util.replace_some_ingredient("space-platform-foundation", "copper-cable", 10, "optical-fiber", 10)
+util.replace_ingredient("cryogenic-plant", "processing-unit", "optical-fiber", 50)
+util.add_ingredient("quantum-processor", "optical-fiber", 2)
 
 if data.raw.item["silicone"] then
   if mods["space-age"] then
