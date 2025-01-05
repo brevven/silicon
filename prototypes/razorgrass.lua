@@ -216,7 +216,7 @@ data:extend({
         {
           {
             type = "create-decorative",
-            decorative = "brambles",
+            decorative = "curly-roots-grey",
             spawn_min = 1,
             spawn_max = 5,
             spawn_min_radius = 0,
