@@ -34,3 +34,5 @@ if util.me.use_gyros() then
   -- Mod portal reported issue, can't reproduce, attempt to add gyro at the very end
   util.add_ingredient("flying-robot-frame", "gyro", 1)
 end
+
+util.size_recycler_output()

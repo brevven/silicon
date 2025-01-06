@@ -5,6 +5,8 @@ require("compatibility/248k")
 require("compatibility/crafting-efficiency")
 require("compatibility/any-planet-start")
 
+local util = require("data-util");
+
 if data.raw.resource["stone"] then
   if mods["space-exploration"] then
     -- local noise = require('noise');
@@ -24,4 +26,5 @@ if data.raw.resource["stone"] then
     }
   end
 end
-    
+
+util.redo_recycling()
