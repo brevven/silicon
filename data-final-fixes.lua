@@ -12,11 +12,20 @@ if mods.modmashsplinterelectronics then
 end
 
 if mods["space-age"] then
--- If furnaces are treated as furnaces, we need 2 outputs
 for i, entity in pairs(data.raw.furnace) do
   if entity.result_inventory_size ~= nil and entity.result_inventory_size < 2 and util.contains(entity.crafting_categories, "smelting") then
     entity.result_inventory_size = 2
   end
+  if util.contains(entity.crafting_categories, "smelting") then
+    if entity.energy_source and entity.energy_source.fuel_categories then
+      for i, cat in pairs(entity.energy_source.fuel_categories) do
+        if cat == "chemical" and not entity.energy_source.burnt_inventory_size then
+          entity.energy_source.burnt_inventory_size = 1
+        end
+      end
+    end
+  end
+
 end
 end 
 
