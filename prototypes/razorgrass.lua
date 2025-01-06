@@ -3,7 +3,7 @@ local util = require("data-util")
 
 
 if mods["space-age"] then
-data.raw.planet.gleba.map_gen_settings.autoplace_settings.entity.settings["razorgrass"] = {}
+data.raw.planet.gleba.map_gen_settings.autoplace_settings.entity.settings["razorgrass-plant"] = {}
 local space_age_item_sounds = require("__space-age__.prototypes.item_sounds")
 local function razorgrass_variations()
   local variation_count = 8 --variation_count or 5
@@ -120,7 +120,7 @@ end
 data:extend({
   {
     type = "plant",
-    name = "razorgrass", --silica
+    name = "razorgrass-plant", --silica
     icon = "__bzsilicon__/graphics/technology/razorgrass.png",
     icon_size = 256,
     growth_ticks = 5 * 60 * 60,
@@ -129,7 +129,7 @@ data:extend({
     flags = plant_flags,
     minable =
     {
-      mining_particle = "wooden-particle",
+      mining_particle = "leaf-particle",
       mining_time = 0.5,
       results =
       {
@@ -159,11 +159,11 @@ data:extend({
           end
         end
 
-        game.surfaces[1].create_entity{name = "razorgrass", position = {x=-2.54, y=-0.76}, tick_grown = 100}
-        game.surfaces[1].create_entity{name = "razorgrass", position = {x=2.87, y=-0.37}, tick_grown = 8000}
-        game.surfaces[1].create_entity{name = "razorgrass", position = {x=-4.68, y=1.83}, tick_grown = 1000}
-        game.surfaces[1].create_entity{name = "razorgrass", position = {x=-0.10, y=0.67}, tick_grown = 10000}
-        game.surfaces[1].create_entity{name = "razorgrass", position = {x=4.80, y=1.69}, tick_grown = 100}
+        game.surfaces[1].create_entity{name = "razorgrass-plant", position = {x=-2.54, y=-0.76}, tick_grown = 100}
+        game.surfaces[1].create_entity{name = "razorgrass-plant", position = {x=2.87, y=-0.37}, tick_grown = 8000}
+        game.surfaces[1].create_entity{name = "razorgrass-plant", position = {x=-4.68, y=1.83}, tick_grown = 1000}
+        game.surfaces[1].create_entity{name = "razorgrass-plant", position = {x=-0.10, y=0.67}, tick_grown = 10000}
+        game.surfaces[1].create_entity{name = "razorgrass-plant", position = {x=4.80, y=1.69}, tick_grown = 100}
       ]]
     },
     autoplace =
@@ -245,9 +245,9 @@ data:extend({
     research_trigger =
     {
       type = "mine-entity",
-      entity = "razorgrass",
+      entity = "razorgrass-plant",
     },
-    prerequisites = {"agriculture", "heating-tower"},
+    prerequisites = {"agriculture"},
     order = "b-b",
   },
   {
@@ -265,7 +265,6 @@ data:extend({
     group = "intermediate-products",
     stack_size = 50,
     order = "b[agriculture]-r[razorgrass]",
-    burnt_result = "razorgrass-ash",
     fuel_category = "chemical",
     fuel_value = "1MJ",
     spoil_ticks = 1*60*60*60,
@@ -309,7 +308,7 @@ data:extend({
     subgroup = "agriculture-processes",
     category = "smelting",
     enabled = false,
-    energy_required = 10,
+    energy_required = 6,
     allow_productivity = true,
     ingredients = {
       util.item("razorgrass", 1),
@@ -353,7 +352,7 @@ data:extend({
     },
     subgroup = "agriculture-processes",
     order = "a[seeds]-r[razorgrass-seed]",
-    plant_result = "razorgrass",
+    plant_result = "razorgrass-plant",
     inventory_move_sound = space_age_item_sounds.agriculture_inventory_move,
     pick_sound = space_age_item_sounds.agriculture_inventory_pickup,
     drop_sound = space_age_item_sounds.agriculture_inventory_move,

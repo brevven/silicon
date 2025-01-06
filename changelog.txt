@@ -1,6 +1,6 @@
 ---------------------------------------------------------------------------------------------------
 Version: 2.0.0
-Date: 2025-01-03
+Date: 2025-01-05
   Changes:
     - Compatible with 2.0 and Space Age
     - More intermediate recipes setting now only has yes/no options.
