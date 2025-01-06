@@ -29,6 +29,15 @@ data:extend(
     allow_productivity = true,
     ingredients = {util.item("stone-crushed", 4)},
     results = {util.item("silica", 5)},
+  } or mods["aai-industry"] and {
+    type = "recipe",
+    name = "silica",
+    category = mods["space-age"] and "basic-crushing" or "crafting",
+    enabled = false,
+    energy_required = 0.5,
+    allow_productivity = true,
+    ingredients = {util.item("sand", 1)},
+    results = {util.item("silica", 1)},
   } or
   {
     type = "recipe",
