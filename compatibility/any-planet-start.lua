@@ -30,4 +30,22 @@ elseif mods["any-planet-start"] and util.me.get_setting("aps-planet") == "fulgor
   util.set_prerequisite("silica-processing", {"automation-science-pack"})
   util.set_prerequisite("silicon-processing", {"silica-processing"})
   util.remove_prerequisite("advanced-circuit", "silicon-processing")
+elseif mods["any-planet-start"] and util.me.get_setting("aps-planet") == "gleba" then
+  util.add_new_crafting_category("handcrafting", true)
+  data:extend({
+    {
+      type = "recipe",
+      name = "silica-from-ash-by-hand",
+      localised_name = {"item-name.silica"},
+      category = "handcrafting",
+      subgroup = "raw-material",
+      enabled = false,
+      energy_required = 1,
+      ingredients = {
+        {type= "item", name="razorgrass-ash", amount=1},
+      },
+      results = {util.item("silica", 1)}
+    },
+  })
+  util.add_unlock("razorgrass", "silica-from-ash-by-hand") 
 end
