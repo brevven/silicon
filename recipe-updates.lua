@@ -1,6 +1,7 @@
 local util = require("data-util");
 
 local si = util.me.more_intermediates() and "silicon-wafer" or "silicon"
+
 if util.me.use_gyros() then
   util.add_ingredient("flying-robot-frame", "gyro", 1)
   util.add_prerequisite("robotics", "gyro")
@@ -270,5 +271,13 @@ if mods["extended-research-system"] and mods["Bio_Industries"] then
     }})
   if data.raw.recipe["bi-crushed-stone-1"] then
     data.raw.recipe["bi-crushed-stone-1"].enabled = true
+  end
+end
+
+-- Sand in crusher
+if mods["space-age"] then
+  if data.raw.item["sand"] and data.raw.recipe["sand"] and #data.raw.recipe["sand"].ingredients == 1 then
+    data.raw.recipe["sand"].category = "basic-crushing"
+    log(serpent.block(data.raw.recipe["sand"]))
   end
 end
