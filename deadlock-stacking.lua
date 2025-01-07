@@ -1,7 +1,7 @@
 -- Deadlock stacking recipes
 local util = require("__bzsilicon__.data-util");
 
-if deadlock then
+if deadlock and deadlock["add_stack"] then
   deadlock.add_stack("silica", "__bzsilicon__/graphics/icons/stacked/silica-stacked.png" , "deadlock-stacking-1", 64)
   deadlock.add_stack("optical-fiber", "__bzsilicon__/graphics/icons/stacked/optical-fiber-stacked.png" , "deadlock-stacking-2", 64)
   if not mods["Krastorio2"] then

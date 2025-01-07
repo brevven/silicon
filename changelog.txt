@@ -3,6 +3,8 @@ Version: 2.0.1
 Date: 2025-01-07
   Changes:
     - In Space Age, modded sand (eg in AAI Industry) will now be created in basic crusher
+  Fixes:
+    - Attempted fix for crash with a large suite of mods, one of which seems to set a "deadlock" global variable
 ---------------------------------------------------------------------------------------------------
 Version: 2.0.0
 Date: 2025-01-06
