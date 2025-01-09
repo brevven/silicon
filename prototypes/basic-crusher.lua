@@ -171,6 +171,11 @@ data:extend({
     results = {{type="item", name="basic-crusher", amount=1}}
   },
 })
-util.add_unlock("automation-2", "basic-crusher")
+if mods["aai-industry"] then
+  util.add_unlock("sand-processing", "basic-crusher")
+  util.add_prerequisite("sand-processing", "steel-processing")
+else
+  util.add_unlock("automation-2", "basic-crusher")
+end
 util.add_prerequisite("silica-processing", "automation-2")
 end
