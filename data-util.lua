@@ -2,6 +2,7 @@
 -- This file will be overwritten in mod zipfiles, edit bzlib/data-util.lua
 -- WARNING WARNING WARNING
 
+local futil = require("util")
 local me = require("me")
 local util = {}
 
@@ -115,6 +116,15 @@ function util.contains(table, sought)
     end
   end
   return false
+end
+
+-- copies a recipe, giving the copy a new name
+function util.copy_recipe(recipe_name, new_recipe_name)
+  if data.raw.recipe[recipe_name] then
+    new_recipe = futil.table.deepcopy(data.raw.recipe[recipe_name])
+    new_recipe.name = new_recipe_name
+    data:extend({new_recipe})
+  end
 end
 
 -- Add the gleba rock. If it exists, still add resource to mine from it
@@ -366,6 +376,30 @@ function util.use_fluid_mining_final()
     end
   end
   util.remove_raw("technology", "uranium-mining")
+end
+
+
+-- Add vacuum if it hasn't been added yet
+function util.add_vacuum()
+  if not data.raw.fluid.vacuum then
+    data:extend({
+      {
+        type = "fluid",
+        name = "vacuum",
+        icons = { util.vacuum_icon, },
+        visualization_color = util.vacuum_vis,
+        subgroup = "fluid",
+        order = "d[vacuum]",
+        default_temperature = 1500,
+        max_temperature = 2000,
+        gas_temperature = 0,
+        heat_capacity = "0.01kJ",
+        base_color = {0.9, 0.9, 0.9},
+        flow_color = {0.8, 0.8, 0.9},
+        auto_barrel = false,
+      },
+    })
+  end
 end
 
 -- If Hot metals mod is enabled, mark these metals as hot
@@ -1093,9 +1127,6 @@ function multiply_recipe(recipe, multiple)
     else
       recipe.energy_required = 0.5 * multiple  -- 0.5 is factorio default
     end
-    if recipe.result_count then
-      recipe.result_count = recipe.result_count * multiple
-    end
     if recipe.results then
       for i, result in pairs(recipe.results) do
         if result.name then
@@ -1112,10 +1143,22 @@ function multiply_recipe(recipe, multiple)
         end
       end
     end
-    if not recipe.results and not recipe.result_count then
-      -- implicit one item result
-      recipe.result_count = multiple
-    end
+    multiply_ingredients(recipe, multiple)
+  end
+end
+
+-- multiply the ingredient cost of a recipe
+function util.multiply_ingredients(recipe_name, multiple, options)
+  if not should_force(options) and bypass(recipe_name) then return end
+  if data.raw.recipe[recipe_name] then
+    me.add_modified(recipe_name)
+    prepare_redo_recycling(recipe_name)
+    multiply_ingredients(data.raw.recipe[recipe_name], multiple)
+	end
+end
+
+function multiply_ingredients(recipe, multiple)
+  if recipe then
     if recipe.ingredients then
       for i, ingredient in pairs(recipe.ingredients) do
         if ingredient.name then
@@ -1273,6 +1316,13 @@ function add_time(recipe, amount)
     if recipe.energy_required then
       recipe.energy_required = recipe.energy_required + amount
     end
+  end
+end
+
+-- Set localised name
+function util.set_localised_name(recipe_name, localised_name)
+  if data.raw.recipe[recipe_name] then
+    data.raw.recipe[recipe_name].localised_name = localised_name
   end
 end
 
@@ -1466,12 +1516,14 @@ function util.add_minable_result(t, name, result)
   if data.raw[t] and data.raw[t][name] and data.raw[t][name].minable then
     if data.raw[t][name].minable.result and not data.raw[t][name].minable.results then
       data.raw[t][name].minable.results = {
-        {data.raw[t][name].minable.result ,data.raw[t][name].minable.count}}
+        util.item(data.raw[t][name].minable.result ,data.raw[t][name].minable.count)}
       data.raw[t][name].minable.result = nil
       data.raw[t][name].minable.result_count = nil
     end
     if data.raw[t][name].minable.results then
       table.insert(data.raw[t][name].minable.results, result)
+    else
+      data.raw[t][name].minable.results = {result}
     end
   end
 end
