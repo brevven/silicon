@@ -207,24 +207,6 @@ data:extend({
       entity_to_sound_ratio = 0.3,
       average_pause_seconds = 10
     },
-    created_effect = {
-      type = "direct",
-      action_delivery =
-      {
-        type = "instant",
-        source_effects =
-        {
-          {
-            type = "create-decorative",
-            decorative = "curly-roots-grey",
-            spawn_min = 1,
-            spawn_max = 5,
-            spawn_min_radius = 0,
-            spawn_max_radius = 3
-          },
-        }
-      }
-    }
   },
 })
 
@@ -344,6 +326,8 @@ data:extend({
     name = "razorgrass-seed",
     icon = "__bzsilicon__/graphics/icons/razorgrass-seed.png",
     icon_size = 128,
+    localised_name = {"item-name.razorgrass-seed"},
+    localised_description = {"item-description.razorgrass-seed"},
     pictures = {
       {filename="__bzsilicon__/graphics/icons/razorgrass-seed.png", size=128, scale=.25},
       {filename="__bzsilicon__/graphics/icons/razorgrass-seed-1.png", size=128, scale=.25},
@@ -353,6 +337,7 @@ data:extend({
     subgroup = "agriculture-processes",
     order = "a[seeds]-r[razorgrass-seed]",
     plant_result = "razorgrass-plant",
+    place_result = "razorgrass-plant",
     inventory_move_sound = space_age_item_sounds.agriculture_inventory_move,
     pick_sound = space_age_item_sounds.agriculture_inventory_pickup,
     drop_sound = space_age_item_sounds.agriculture_inventory_move,

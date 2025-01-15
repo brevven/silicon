@@ -1769,4 +1769,245 @@ function prepare_redo_recycling(recipe_name)
 end
 
 
+-- According to https://mods.factorio.com/mod/Asteroid_Mining, the
+-- following function is under this MIT license (similar license, different author):
+--
+-- Copyright (c) 2021 Silari
+-- Permission is hereby granted, free of charge, to any person obtaining a copy of
+-- this software and associated documentation files (the "Software"), to deal in
+-- the Software without restriction, including without limitation the rights to
+-- use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of
+-- the Software, and to permit persons to whom the Software is furnished to do so,
+-- subject to the following conditions:
+-- 
+-- The above copyright notice and this permission notice shall be included in all
+-- copies or substantial portions of the Software.
+-- 
+-- THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+-- IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
+-- FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
+-- COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
+-- IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
+-- CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+function util.addtype(name,atint,desc) --,pictures)
+  require("__Asteroid_Mining__/scripts/icons.lua") -- Has generateicons function
+
+  local allowprod = settings.startup["astmine-allowprod"].value
+  local useminer = settings.startup["astmine-enableminer"].value
+  local hiderec = not settings.startup["astmine-hiderecipes"].value
+  local recenabled = false
+
+  local chunkstacksize = 1000
+  if mods["space-exploration"] then
+      chunkstacksize = 200
+  end
+
+  --Adds given recipe to prod modules allowed list
+  function addmodules(name)
+      if useminer then -- Only add these if we're actually enabled.
+          table.insert(data.raw.module["productivity-module"].limitation, name)
+          table.insert(data.raw.module["productivity-module-2"].limitation, name)
+          table.insert(data.raw.module["productivity-module-3"].limitation, name)
+      end
+  end
+
+  --Result for processing resource specific chunks
+  local normal = { -- Gives 4000 chunks on average
+      {
+        amount_min = 3,
+        amount_max = 5,
+        probability = 1
+      }
+  }
+  local chunkamount = 1000
+
+  -- Space age makes rockets cost 1/20th as much. Give less materials, same ratio.
+  if mods["space-age"] then 
+      chunkamount = 50
+  end
+
+  --ITEM: Miner-module, which is what we send into space to get the asteroid-mixed item
+  local minermodule = {
+      icon = "__Asteroid_Mining__/graphics/mining-sat.png",
+      icon_mipmaps = 4,
+      icon_size = 64,
+      name = "miner-module",
+      localised_name = {"item-name.miner-module", "Mixed"},
+      localised_description = {"item-description.miner-module", "mixed"},
+      order = "n[miner-module]",
+      rocket_launch_products = {{
+          name="asteroid-mixed",
+          amount=chunkamount,
+          type="item"
+      }},
+      send_to_orbit_mode = "automated",
+      stack_size = 1,
+      subgroup = subminer,
+      type = "item"
+  }
+  --Make a new item with the given name+"-chunk" and recipe to turn into name
+  --eg addtype('iron-ore') makes iron-ore-chunk and recipe for iron-ore-chunk->100 iron-ore
+  --log("Making new items for " .. name)
+  --ITEM Resource chunk for this item
+      
+  local suffix = "-chunk"
+  -- Sometimes we need to override the default suffix because the item name already exists.
+  -- TODO - change this so it automatically detects name-chunk item exists and change suffix - BUT
+  --  that would cause issues if 'name' is in more than one module - eg angels/bobs overlap, bob+bzlead, etc.
+  --  Maybe add in something that tracks what 'name's have been added and skip it if it has.
+  if string.find(name,"angels-ore",1,true) then
+      suffix = "-chunk-am"
+  end
+  --log(name .. " name:suffix " .. suffix)
+  
+  local reschunk = {
+    icons = {
+      {
+        icon = "__Asteroid_Mining__/graphics/resource-chunk.png",
+        icon_mipmaps = 4,
+        icon_size = 64
+      },
+      {
+        icon = "__Asteroid_Mining__/graphics/resource-chunk-mask.png",
+        icon_mipmaps = 4,
+        icon_size = 64,
+        tint = atint
+      }
+    },
+    name = name .. suffix,
+    localised_name = {"item-name.resource-chunk", {"item-name." .. name}},
+    localised_description = {"item-description.resource-chunk", {"item-name." .. name}},
+    order = "d[asteroidchunk-" .. name .. "]",
+    stack_size = 25,
+    subgroup = subchunk,
+    type = "item"
+  }
+  
+  --RECIPE Turn resource chunk into 24 of item
+  local procreschunk = {
+    allow_decomposition = false,
+    always_show_products = true,
+    category = reccategory,
+    enabled = hiderec,
+    energy_required = 5,
+    ingredients = {
+      {
+        name=name .. suffix,
+        amount=1,
+        type="item"
+      }
+    },
+    name = name .. suffix,
+    order = "d[asteroidchunk-" .. name .. "]",
+    localised_name = {"recipe-name.resource-chunk", {"item-name." .. name}},
+    localised_description = {"recipe-description.resource-chunk", {"item-name." .. name}},
+    results = {{name=name,amount=24,type="item"}},
+    type = "recipe"
+  }
+  if desc == nil then
+      desc = ""
+  end
+  
+  --ITEM Resource specific asteroid chunk.
+  local newasteroid = {
+    icons = {
+      {
+        icon = "__Asteroid_Mining__/graphics/asteroid-chunk.png",
+        icon_mipmaps = 4,
+        icon_size = 64
+      },
+      {
+        icon = "__Asteroid_Mining__/graphics/asteroid-chunk-mask.png",
+        icon_mipmaps = 4,
+        icon_size = 64,
+        tint = atint
+      }
+    },
+    name = "asteroid-" .. name,
+    localised_name = {"item-name.asteroid-chunk", {"item-name." .. name}},
+    localised_description = {"item-description.asteroid-chunk", {"item-name." .. name}, desc},
+    order = "k[zasteroid-" .. name .. "]",
+    stack_size = chunkstacksize,
+    subgroup = subchunk,
+    type = "item"        
+  }
+  --log(serpent.block(newasteroid))
+  --We need to set the result name to the name of our resource chunk
+  mynormal = table.deepcopy(normal)
+  mynormal[1].name = name .. suffix
+  mynormal[1].type = "item"
+  --Expensive mode is gone.
+  --myexpensive = table.deepcopy(expensive)
+  --myexpensive[1].name = name .. suffix
+  
+  --RECIPE: Processing the asteroid chunks into resource chunks
+  local processasteroid = {
+    allow_decomposition = false,
+    category = reccategory,
+    name = "asteroid-" .. name,
+    localised_name = {"recipe-name.asteroid-chunk", {"item-name." .. name}},
+    localised_description = {"recipe-description.asteroid-chunk", {"item-name." .. name}},
+    order = "k[zasteroid-" .. name .. "]",
+    ingredients = {{name="asteroid-" .. name,amount=1,type="item"}},
+    results = mynormal,
+    always_show_products = true,
+    enabled = hiderec,
+    energy_required = 10,
+    --subgroup = subchunk,
+    type = "recipe"
+  }
+
+  --ITEM Miner module to get resource specific asteroids.
+  local minerres = table.deepcopy(minermodule)
+  minerres.name = "miner-module-" .. name
+  minerres.rocket_launch_products = {{
+      name="asteroid-" .. name,
+      amount=chunkamount,
+      type="item"
+  }}
+  minerres.order = "n[miner-module" .. name .. "]"
+  minerres.icons = generateicons(name,atint) --Generate icon layers using given item
+  minerres.localised_name = {"item-name.miner-module", {"item-name." .. name}}
+  minerres.localised_description = {"item-description.miner-module", {"item-name." .. name}}
+  
+  --RECIPE: Recipe to make miner module to get resource specific asteroids. Always the default category
+  local newminer = {
+      enabled = recenabled,
+      ingredients = {
+          {
+            name="electric-mining-drill",
+            amount=5,
+            type="item"
+          },
+          {
+            name="radar",
+            amount=5,
+            type="item"
+          },
+          {
+            name=name,
+            amount=5,
+            type="item"
+          }
+      },
+      name = "miner-module-" .. name,
+      results = {{name="miner-module-" .. name,amount=1,type="item"}},
+      type = "recipe"        
+  }
+  data:extend{reschunk,procreschunk,newasteroid,processasteroid}
+  if useminer then -- Disabled in 1.0 for the new generation system, once in place.
+      data:extend{minerres,newminer}
+      --This makes the miner module available when rocket silo is researched
+      table.insert(data.raw.technology["rocket-silo"].effects, {type = "unlock-recipe", recipe = "miner-module-" .. name})
+      if not hiderec then
+          table.insert(data.raw.technology["rocket-silo"].effects, {type = "unlock-recipe", recipe = "asteroid-" .. name})
+          table.insert(data.raw.technology["rocket-silo"].effects, {type = "unlock-recipe", recipe = name .. suffix})
+      end
+  end
+  if allowprod then -- Setting to enable prod module usage in asteroid processing
+      addmodules(processasteroid.name)
+  end
+end
+-- END of alternate licenscing
+
 return util
