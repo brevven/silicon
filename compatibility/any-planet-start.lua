@@ -4,7 +4,8 @@ if mods["any-planet-start"] and util.me.get_setting("aps-planet") == "vulcanus" 
   util.set_prerequisite("silica-processing", {})
   util.add_unlock("automation", "basic-crusher")
   util.set_prerequisite("silicon-processing", {"silica-processing"})
-  util.set_tech_trigger("silica-processing", {type = "mine-entity", entity="huge-volcanic-rock"})
+  util.set_tech_trigger("silica-processing", {type = "mine-entity", entity="vulcanus-chimney-truncated"})
+  util.replace_ingredient("solar-cell", "silicon-wafer", "silicon")
   util.set_tech_trigger("silicon-processing", {type = "craft-item", item="silica", count=50})
   if util.me.more_intermediates() then
     util.add_new_crafting_category("handcrafting", true)
@@ -27,7 +28,7 @@ if mods["any-planet-start"] and util.me.get_setting("aps-planet") == "vulcanus" 
     util.add_unlock("silicon-processing", "silicon-wafer-by-hand") 
   end
 elseif mods["any-planet-start"] and util.me.get_setting("aps-planet") == "fulgora" then
-  util.set_prerequisite("silica-processing", {"automation-science-pack"})
+  util.set_prerequisite("silica-processing", {"automation-2"})
   util.set_prerequisite("silicon-processing", {"silica-processing"})
   util.remove_prerequisite("advanced-circuit", "silicon-processing")
 elseif mods["any-planet-start"] and util.me.get_setting("aps-planet") == "gleba" then

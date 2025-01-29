@@ -65,7 +65,7 @@ data:extend({
   {
     type = "item",
     name = "basic-crusher",
-    icon = "__space-age__/graphics/icons/crusher.png",
+    icons = {{icon = "__space-age__/graphics/icons/crusher.png", icon_size=64, scale=0.8, tint={.7,.7,.7}}},
     subgroup = "production-machine",
     order = "s[crusher]",
     inventory_move_sound = item_sounds.drill_inventory_move,
@@ -78,6 +78,7 @@ data:extend({
   {
     type = "furnace",
     name = "basic-crusher",
+    icons = {{icon = "__space-age__/graphics/icons/crusher.png", icon_size=64, scale=0.8, tint={.7,.7,.7}}},
     source_inventory_size = 1,
     result_inventory_size = 1,
     icon = "__space-age__/graphics/icons/crusher.png",

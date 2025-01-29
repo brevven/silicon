@@ -281,3 +281,7 @@ if mods["space-age"] then
     log(serpent.block(data.raw.recipe["sand"]))
   end
 end
+
+-- Maraxsis
+util.replace_ingredient("maraxsis-glass-panes", "sand", "silica", 10)
+util.add_unlock("maraxsis-glassworking", "silica-from-sand-maraxsis")

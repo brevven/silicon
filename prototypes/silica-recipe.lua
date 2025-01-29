@@ -125,3 +125,18 @@ data:extend(
   },
 }
 )
+if mods.maraxsis then
+data:extend({
+  {
+    type = "recipe",
+    name = "silica-from-sand-maraxsis",
+    localised_name = {"item-name.silica"},
+    category = "basic-crushing",
+    enabled = false,
+    energy_required = 1.6,
+    allow_productivity = true,
+    ingredients = {util.item("sand", 1)},
+    results = {util.item("silica", 5)},
+  }
+})
+end

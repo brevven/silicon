@@ -1,6 +1,6 @@
 local me = {} 
 me.name = "bzsilicon"
-me.resources = {"razorgrass"}
+me.resources = {{"razorgrass-plant", "gleba"}}
 me.silicon_processing = (mods and mods["Krastorio2"] and "kr-silicon-processing") or "silicon-processing"
 me.recipes = {"silica", "silicon", "optical-fiber", "silicon-wafer", "solar-cell", "gyro", "silicon-smelting-vulcanite"}
 
