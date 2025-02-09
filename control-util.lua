@@ -173,7 +173,7 @@ function regenerate_ore(event)
         game.print("Could not find surface for "..planet..". May not exist, or may not yet be explored.")
         return
       end
-      if resource[1] == params[2] and resource[2] == planet then
+      if resource[1] == params[2] and (resource[2] == planet or "tenebris" == planet) then
         if #params == 5 then
           local settings = {frequency=params[3], size=params[4], richness=params[5]}
           local map_gen_settings = game.surfaces[planet].map_gen_settings
