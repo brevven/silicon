@@ -928,7 +928,12 @@ function add_product(recipe, product)
   if recipe ~= nil then
     if product.name and data.raw[product.type][product.name] then
       if recipe.results == nil then
-        recipe.results = {{recipe.result, recipe.result_count and recipe.result_count or 1}}
+        recipe.results = {}
+      end
+      for _, old in pairs(recipe.results) do
+        if old.name == product.name then
+          return
+        end
       end
       recipe.result = nil
       recipe.result_count = nil
