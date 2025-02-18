@@ -177,6 +177,26 @@ data:extend({
     results = {util.item("solar-cell", 2)}
   },
 })
+if mods["space-age"] then
+data:extend({
+  {
+    type = "recipe",
+    name = "silicon-wafer-by-hand",
+    localised_name = {"item-name.silicon-wafer"},
+    category = "handcrafting",
+    subgroup = "intermediate-product",
+    enabled = false,
+    energy_required = 2,
+    allow_productivity = true,
+    ingredients = {
+     util.item("silicon", 1),
+    },
+    results = {util.item("silicon-wafer", 1)}
+  },
+})
+util.add_new_crafting_category("handcrafting", true)
+util.add_unlock("silicon-processing", "silicon-wafer-by-hand")
+end
 if not mods["space-age"] then
   util.add_unlock("silicon-processing", "silicone")
 end
