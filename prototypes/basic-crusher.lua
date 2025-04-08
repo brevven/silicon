@@ -4,7 +4,7 @@ local item_sounds = require("__base__.prototypes.item_sounds")
 local sounds = require("__base__.prototypes.entity.sounds")
 local hit_effects = require("__base__.prototypes.entity.hit-effects")
 
-if mods["space-age"] then
+if mods["space-age"] and not data.raw.furnace["basic-crusher"] then
 -- note that crusher is a space age asset and as such can only be used with space age
 
 local graphics = require("__space-age__.prototypes.entity.crusher-pictures")
@@ -20,10 +20,10 @@ graphics.animation.east.layers[1].scale = graphics.animation.east.layers[1].scal
 graphics.animation.east.layers[2].scale = graphics.animation.east.layers[2].scale * 0.5
 graphics.animation.west.layers[1].scale = graphics.animation.west.layers[1].scale * 0.5
 graphics.animation.west.layers[2].scale = graphics.animation.west.layers[2].scale * 0.5
-graphics.working_visualisations.layers.north_animation.scale = graphics.working_visualisations.layers.north_animation.scale * 0.5
-graphics.working_visualisations.layers.east_animation.scale = graphics.working_visualisations.layers.east_animation.scale * 0.5
-graphics.working_visualisations.layers.south_animation.scale = graphics.working_visualisations.layers.south_animation.scale * 0.5
-graphics.working_visualisations.layers.west_animation.scale = graphics.working_visualisations.layers.west_animation.scale * 0.5
+graphics.working_visualisations[1].north_animation.scale = graphics.working_visualisations[1].north_animation.scale * 0.5
+graphics.working_visualisations[1].east_animation.scale = graphics.working_visualisations[1].east_animation.scale * 0.5
+graphics.working_visualisations[1].south_animation.scale = graphics.working_visualisations[1].south_animation.scale * 0.5
+graphics.working_visualisations[1].west_animation.scale = graphics.working_visualisations[1].west_animation.scale * 0.5
 
 graphics.integration_patch.north.shift[1] = graphics.integration_patch.north.shift[1] * 0.5
 graphics.integration_patch.north.shift[2] = graphics.integration_patch.north.shift[2] * 0.5
@@ -49,15 +49,14 @@ graphics.animation.west.layers[1].shift[1] = graphics.animation.west.layers[1].s
 graphics.animation.west.layers[1].shift[2] = graphics.animation.west.layers[1].shift[2] * 0.5
 graphics.animation.west.layers[2].shift[1] = graphics.animation.west.layers[2].shift[1] * 0.5
 graphics.animation.west.layers[2].shift[2] = graphics.animation.west.layers[2].shift[2] * 0.5
-graphics.working_visualisations.layers.north_animation.shift[1] = graphics.working_visualisations.layers.north_animation.shift[1] * 0.5
-graphics.working_visualisations.layers.north_animation.shift[2] = graphics.working_visualisations.layers.north_animation.shift[2] * 0.5
-graphics.working_visualisations.layers.south_animation.shift[1] = graphics.working_visualisations.layers.south_animation.shift[1] * 0.5
-graphics.working_visualisations.layers.south_animation.shift[2] = graphics.working_visualisations.layers.south_animation.shift[2] * 0.5
-graphics.working_visualisations.layers.east_animation.shift[1] = graphics.working_visualisations.layers.east_animation.shift[1] * 0.5
-graphics.working_visualisations.layers.east_animation.shift[2] = graphics.working_visualisations.layers.east_animation.shift[2] * 0.5
-graphics.working_visualisations.layers.west_animation.shift[1] = graphics.working_visualisations.layers.west_animation.shift[1] * 0.5
-graphics.working_visualisations.layers.west_animation.shift[2] = graphics.working_visualisations.layers.west_animation.shift[2] * 0.5
-
+graphics.working_visualisations[1].north_animation.shift[1] = graphics.working_visualisations[1].north_animation.shift[1] * 0.5
+graphics.working_visualisations[1].north_animation.shift[2] = graphics.working_visualisations[1].north_animation.shift[2] * 0.5
+graphics.working_visualisations[1].south_animation.shift[1] = graphics.working_visualisations[1].south_animation.shift[1] * 0.5
+graphics.working_visualisations[1].south_animation.shift[2] = graphics.working_visualisations[1].south_animation.shift[2] * 0.5
+graphics.working_visualisations[1].east_animation.shift[1] = graphics.working_visualisations[1].east_animation.shift[1] * 0.5
+graphics.working_visualisations[1].east_animation.shift[2] = graphics.working_visualisations[1].east_animation.shift[2] * 0.5
+graphics.working_visualisations[1].west_animation.shift[1] = graphics.working_visualisations[1].west_animation.shift[1] * 0.5
+graphics.working_visualisations[1].west_animation.shift[2] = graphics.working_visualisations[1].west_animation.shift[2] * 0.5
 
 util.add_new_crafting_category("basic-crushing", true)
 
@@ -180,3 +179,6 @@ else
 end
 util.add_prerequisite("silica-processing", "automation-2")
 end
+-- For graphite we can't have steel as an ingredient.
+util.remove_ingredient("basic-crusher", "steel-plate")
+util.add_to_ingredient("basic-crusher", "iron-plate", 20)

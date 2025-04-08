@@ -1,4 +1,5 @@
 local util = require("data-util");
+local item_sounds = require('__base__.prototypes.item_sounds')
 
 if util.me.use_gyros() then
 gyro_ingredients = {  -- outputs 4
@@ -28,6 +29,9 @@ data:extend({
     name = "gyro",
     icon = "__bzsilicon__/graphics/icons/gyro.png",
     icon_size = 128,
+    inventory_move_sound = item_sounds.electric_small_inventory_move,
+    pick_sound = item_sounds.electric_small_inventory_pickup,
+    drop_sound = item_sounds.electric_small_inventory_move,
     subgroup = util.se6() and "electronic" or "intermediate-product",
     order = "s[silicon]-z-gyro",
     stack_size = util.get_stack_size(200),

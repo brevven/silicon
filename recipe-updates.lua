@@ -118,8 +118,10 @@ if not mods["Krastorio2"] then
 
     util.replace_some_ingredient("processing-unit", "electronic-circuit", 10, "silicon", 6)
 
-    util.remove_ingredient("effectivity-module", "electronic-circuit")
-    util.add_ingredient("effectivity-module", "silicon", 3)
+    util.remove_ingredient("efficiency-module", "electronic-circuit")
+    util.add_ingredient("efficiency-module", "silicon", 3)
+    util.remove_ingredient("quality-module", "electronic-circuit")
+    util.add_ingredient("quality-module", "silicon", 3)
     util.remove_ingredient("productivity-module", "electronic-circuit")
     util.add_ingredient("productivity-module", "silicon", 3)
     util.remove_ingredient("speed-module", "electronic-circuit")
@@ -274,11 +276,16 @@ if mods["extended-research-system"] and mods["Bio_Industries"] then
   end
 end
 
--- Sand in crusher
+-- Sand in crusher. If sand comes from stone, silica comes from sand
 if mods["space-age"] then
   if data.raw.item["sand"] and data.raw.recipe["sand"] and #data.raw.recipe["sand"].ingredients == 1 then
     data.raw.recipe["sand"].category = "basic-crushing"
-    log(serpent.block(data.raw.recipe["sand"]))
+    log(serpent.block(data.raw.recipe.sand))
+    if data.raw.recipe.sand.ingredients[1].name == "stone" then
+      util.replace_ingredient("silica", "stone", "sand", 1)
+      util.set_product_amount("silica", "silica", 1)
+      util.set_recipe_time("silica", 0.5)
+    end
   end
 end
 

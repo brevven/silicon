@@ -1,5 +1,6 @@
 -- Silica
 local util = require("__bzsilicon__.data-util");
+local item_sounds = require('__base__.prototypes.item_sounds')
 data:extend(
 {
   mods["Krastorio2"] and {
@@ -29,15 +30,15 @@ data:extend(
     allow_productivity = true,
     ingredients = {util.item("stone-crushed", 4)},
     results = {util.item("silica", 5)},
-  } or mods["aai-industry"] and {
-    type = "recipe",
-    name = "silica",
-    category = mods["space-age"] and "basic-crushing" or "crafting",
-    enabled = false,
-    energy_required = 0.5,
-    allow_productivity = true,
-    ingredients = {util.item("sand", 1)},
-    results = {util.item("silica", 1)},
+  -- } or mods["aai-industry"] and {
+  --   type = "recipe",
+  --   name = "silica",
+  --   category = mods["space-age"] and "basic-crushing" or "crafting",
+  --   enabled = false,
+  --   energy_required = 0.5,
+  --   allow_productivity = true,
+  --   ingredients = {util.item("sand", 1)},
+  --   results = {util.item("silica", 1)},
   } or
   {
     type = "recipe",
@@ -62,6 +63,9 @@ data:extend(
     name = "silica",
     icon = "__bzsilicon__/graphics/icons/silica.png",
     icon_size = 64, icon_mipmaps = 3,
+    inventory_move_sound = item_sounds.sulfur_inventory_move,
+    pick_sound = item_sounds.resource_inventory_pickup,
+    drop_sound = item_sounds.sulfur_inventory_move,
     subgroup = "raw-material",
     order = "b[silica]",
     stack_size = util.get_stack_size(100),

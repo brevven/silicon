@@ -1,10 +1,11 @@
+if mods["space-age"] then
 local futil = require("util")
 local util = require("data-util")
-
-
-if mods["space-age"] then
-data.raw.planet.gleba.map_gen_settings.autoplace_settings.entity.settings["razorgrass-plant"] = {}
 local space_age_item_sounds = require("__space-age__.prototypes.item_sounds")
+local item_sounds = require('__base__.prototypes.item_sounds')
+
+
+data.raw.planet.gleba.map_gen_settings.autoplace_settings.entity.settings["razorgrass-plant"] = {}
 local function razorgrass_variations()
   local variation_count = 8 --variation_count or 5
   local per_row = 4 -- per_row or 5
@@ -243,6 +244,9 @@ data:extend({
       {filename="__bzsilicon__/graphics/icons/razorgrass-2.png", size=128, scale=.3},
       {filename="__bzsilicon__/graphics/icons/razorgrass-3.png", size=128, scale=.3},
     },
+    inventory_move_sound = space_age_item_sounds.agriculture_inventory_move,
+    pick_sound = space_age_item_sounds.agriculture_inventory_pickup,
+    drop_sound = space_age_item_sounds.agriculture_inventory_move,
     subgroup = "agriculture-processes",
     group = "intermediate-products",
     stack_size = 50,
@@ -264,6 +268,9 @@ data:extend({
       {filename="__bzsilicon__/graphics/icons/razorgrass-dried-2.png", size=128, scale=.3},
       {filename="__bzsilicon__/graphics/icons/razorgrass-dried-3.png", size=128, scale=.3},
     },
+    inventory_move_sound = space_age_item_sounds.agriculture_inventory_move,
+    pick_sound = space_age_item_sounds.agriculture_inventory_pickup,
+    drop_sound = space_age_item_sounds.agriculture_inventory_move,
     subgroup = "agriculture-processes",
     group = "intermediate-products",
     stack_size = 100,
@@ -278,6 +285,9 @@ data:extend({
     name = "razorgrass-ash",
     icon = "__bzsilicon__/graphics/icons/ash.png",
     icon_size = 64,
+    inventory_move_sound = item_sounds.sulfur_inventory_move,
+    pick_sound = item_sounds.resource_inventory_pickup,
+    drop_sound = item_sounds.sulfur_inventory_move,
     subgroup = "agriculture-processes",
     group = "intermediate-products",
     stack_size = 100,

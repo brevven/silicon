@@ -1,5 +1,6 @@
 -- Silicon
 local util = require("data-util");
+local item_sounds = require('__base__.prototypes.item_sounds')
 if mods["Krastorio2"] then
   util.remove_raw("recipe", "silicon-2")
   util.remove_recipe_effect("kr-silicon-processing", "silicon-2")
@@ -54,6 +55,9 @@ data:extend(
     name = "silicon",
     icon = "__bzsilicon__/graphics/icons/silicon.png",
     icon_size = 64, icon_mipmaps = 3,
+    inventory_move_sound = item_sounds.sulfur_inventory_move,
+    pick_sound = item_sounds.resource_inventory_pickup,
+    drop_sound = item_sounds.sulfur_inventory_move,
     subgroup = "raw-material",
     order = "b[silicon]",
     stack_size = util.get_stack_size(100),
@@ -99,6 +103,9 @@ data:extend({
     name = "silicon-wafer",
     icon = "__bzsilicon__/graphics/icons/silicon-wafer.png",
     icon_size = 64, icon_mipmaps = 3,
+    inventory_move_sound = item_sounds.electric_small_inventory_move,
+    pick_sound = item_sounds.electric_small_inventory_pickup,
+    drop_sound = item_sounds.electric_small_inventory_move,
     subgroup = "intermediate-product",
     stack_size = util.get_stack_size(100),
     order = "s[silicon]-silicon-wafer",
@@ -110,16 +117,16 @@ data:extend({
     category = "crafting-with-fluid",
     subgroup = "intermediate-product",
     enabled = false,
-    energy_required = 20,
+    energy_required = 2,
     allow_productivity = true,
     ingredients = (mods["Krastorio2"] and {
-      {type= "item", name="silicon", amount=20},
-      {type= "fluid", name="hydrogen-chloride", amount=50},
+      {type= "item", name="silicon", amount=2},
+      {type= "fluid", name="hydrogen-chloride", amount=5},
     } or {
-      {type= "item", name="silicon", amount=20},
-      {type= "fluid", name="sulfuric-acid", amount=50},
+      {type= "item", name="silicon", amount=2},
+      {type= "fluid", name="sulfuric-acid", amount=5},
     }),
-    results = {util.item("silicon-wafer", 30)}
+    results = {util.item("silicon-wafer", 3)}
   },
   {
     type = "item",
@@ -153,6 +160,9 @@ data:extend({
     name = "solar-cell",
     icon = "__bzsilicon__/graphics/icons/solar-cell.png",
     icon_size = 64, icon_mipmaps = 3,
+    inventory_move_sound = item_sounds.electric_small_inventory_move,
+    pick_sound = item_sounds.electric_small_inventory_pickup,
+    drop_sound = item_sounds.electric_small_inventory_move,
     subgroup = "intermediate-product",
     stack_size = util.get_stack_size(100),
     order = "s[silicon]-solar-cell",

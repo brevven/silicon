@@ -2,7 +2,6 @@ require("recipe-updates")
 require("strange-matter")
 require("recipes/silicon-vulcanite")
 require("compatibility/248k")
-require("compatibility/crafting-efficiency")
 require("compatibility/any-planet-start")
 
 local util = require("data-util");

@@ -1,5 +1,6 @@
 -- Optical Fiber
 local util = require("__bzsilicon__.data-util");
+local item_sounds = require('__base__.prototypes.item_sounds')
 data:extend(
 {
   {
@@ -7,6 +8,9 @@ data:extend(
     name = "optical-fiber",
     icon = "__bzsilicon__/graphics/icons/optical-fiber.png",
     icon_size = 64, icon_mipmaps = 3,
+    inventory_move_sound = item_sounds.wire_inventory_move,
+    pick_sound = item_sounds.wire_inventory_pickup,
+    drop_sound = item_sounds.wire_inventory_move,
     subgroup = util.cablesg,
     order = "a[optical-fiber]",
     stack_size = util.get_stack_size(200),

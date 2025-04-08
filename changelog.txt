@@ -1,13 +1,37 @@
 ---------------------------------------------------------------------------------------------------
-Version: 2.0.8
-Date: 2025-02-17
+Version: 2.0.11
+Date: 2025-03-23
+  Fixes:
+    - Fix when used without space age.
+---------------------------------------------------------------------------------------------------
+Version: 2.0.10
+Date: 2025-03-22
   Changes:
-    - Space Age: When enabled, add a handcrafting recipe for silicon wafers
+    - Set inventory sounds for some items
+  Fixes:
+    - Loads with Crafting Efficiency
+    - Improved compatibility with Muluna
+---------------------------------------------------------------------------------------------------
+Version: 2.0.9
+Date: 2025-03-21
+  Fixes:
+    - Fix startup crash introduced in Factorio 2.0.42
+---------------------------------------------------------------------------------------------------
+Version: 2.0.8
+Date: 2025-03-11
+  Fixes:
+    - Improve compatibility with glass: silica comes from sand when generic sand is available.
+    - Minor locale fixes
+  Changes:
+    - Make wafers in smaller batches (ratio unchanged)
 ---------------------------------------------------------------------------------------------------
 Version: 2.0.7
-Date: 2025-02-01
-  Changes:
-    - Minor compatibility updates
+Date: 2025-03-03
+  Fixes:
+    - Fix Tier 1 module recipes to all require silicon, when wafers are not enabled.
+    - Space Age: When enabled, add a handcrafting recipe for silicon wafers
+    - Fix for infinite loop with certain mod loadouts (mostly during mod dev).
+    - Other minor fixes
 ---------------------------------------------------------------------------------------------------
 Version: 2.0.6
 Date: 2025-01-29
