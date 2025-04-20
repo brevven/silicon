@@ -4,7 +4,7 @@ local item_sounds = require("__base__.prototypes.item_sounds")
 local sounds = require("__base__.prototypes.entity.sounds")
 local hit_effects = require("__base__.prototypes.entity.hit-effects")
 
-if mods["space-age"] and not data.raw.furnace["basic-crusher"] then
+if mods["space-age"] and not data.raw.furnace["basic-crusher"] and not mods["crushing-industry"] then
 -- note that crusher is a space age asset and as such can only be used with space age
 
 local graphics = require("__space-age__.prototypes.entity.crusher-pictures")

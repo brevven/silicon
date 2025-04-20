@@ -754,8 +754,17 @@ function util.add_effect(technology_name, effect)
       if not data.raw.recipe[effect.recipe] then
         return
       end
-      table.insert(technology.effects, effect)
     end
+    table.insert(technology.effects, effect)
+  end
+end
+
+-- Make a technology boost productivity for a recipe
+function util.add_to_productivity_research(technology_name, recipe_name, amount)
+  if not amount then amount = 0.1 end
+  local recipe = data.raw.recipe[recipe_name]
+  if recipe then
+    util.add_effect(technology_name, { type = "change-recipe-productivity", recipe = recipe_name, change = amount})
   end
 end
 
