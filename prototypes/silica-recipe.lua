@@ -62,7 +62,7 @@ data:extend(
     type = "item",
     name = "silica",
     icon = "__bzsilicon__/graphics/icons/silica.png",
-    icon_size = 64, icon_mipmaps = 3,
+    icon_size = 64,
     inventory_move_sound = item_sounds.sulfur_inventory_move,
     pick_sound = item_sounds.resource_inventory_pickup,
     drop_sound = item_sounds.sulfur_inventory_move,
@@ -74,7 +74,7 @@ data:extend(
   mods["Krastorio2"] and {
     type = "technology",
     name = "silica-processing",
-    icon_size = 256, icon_mipmaps = 4,
+    icon_size = 256,
     icon = "__bzsilicon__/graphics/technology/silica-processing.png",
     effects =
     {
