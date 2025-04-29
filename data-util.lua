@@ -116,9 +116,8 @@ function util.fe_plus(sub)
 end
 
 function util.get_stack_size(default) 
-  if mods.Krastorio2 then
-    -- no more stacksize setting in K2
-    return 200
+  if mods.Krastorio2 and kr_adjust_stack_sizes then
+    return tonumber(200)
   end
   return default
 end
