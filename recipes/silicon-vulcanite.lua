@@ -20,7 +20,7 @@ if mods["space-exploration"] then
       {name = "silicon", amount = 6},
     }
     if string.sub(mods["space-exploration"], 1, 3) == "0.6" then
-      table.insert(recipe.ingredients, {"coke", 1})
+      table.insert(recipe.ingredients, {"kr-coke", 1})
       recipe.icons = {
         { icon = "__Krastorio2Assets__/icons/items-with-variations/silicon/silicon.png", icon_size = 64},
         { icon = "__space-exploration-graphics__/graphics/icons/fluid/pyroflux.png", icon_size = 64, scale=0.25, shift= {-10, -10}},

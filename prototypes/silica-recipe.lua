@@ -6,11 +6,11 @@ data:extend(
   mods["Krastorio2"] and {
     type = "recipe",
     name = "silica",
-    category = "crushing",
+    category = "kr-crushing",
     enabled = false,
     energy_required = 4,
     allow_productivity = true,
-    ingredients = {util.item("quartz", 10)},
+    ingredients = {util.item("kr-quartz", 10)},
     results = {util.item("silica", 30)}
   } or util.me.use_bio_crushed_stone() and {
     type = "recipe",
@@ -84,7 +84,7 @@ data:extend(
       },
       {
         type = "unlock-recipe",
-        recipe = "quartz"
+        recipe = "kr-quartz"
       },
     },
     prerequisites = {"kr-fluids-chemistry", "kr-stone-processing"},
