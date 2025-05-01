@@ -3,6 +3,7 @@ require("strange-matter")
 require("recipes/silicon-vulcanite")
 require("compatibility/248k")
 require("compatibility/any-planet-start")
+require("compatibility/krastorio2")
 
 local util = require("data-util");
 

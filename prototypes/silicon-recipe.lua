@@ -20,16 +20,16 @@ data:extend(
 {
   mods["Krastorio2"] and {
     type = "recipe",
-    name = "silicon",
+    name = "kr-silicon",
     category = "smelting",
     enabled = false,
     energy_required = 14.4,
     allow_productivity = true,
     ingredients = {
       util.item("silica", 18),
-      util.item("coke", 1),
+      util.item("kr-coke", 1),
     },
-    results = {util.item("silicon", 3)}
+    results = {util.item("kr-silicon", 3)}
   } or {
     type = "recipe",
     name = "silicon",
