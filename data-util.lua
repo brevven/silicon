@@ -1330,7 +1330,7 @@ end
 -- Replace one product with another in a recipe
 function util.replace_product(recipe_name, old, new, options)
   if not should_force(options) and bypass(recipe_name) then return end
-  if data.raw.recipe[recipe_name] then
+  if data.raw.recipe[recipe_name] and (data.raw.item[new] or data.raw.fluid[new]) then
     replace_product(data.raw.recipe[recipe_name], old, new, options)
   end
 end

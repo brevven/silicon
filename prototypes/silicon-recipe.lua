@@ -176,14 +176,10 @@ data:extend({
     enabled = false,
     energy_required = 2,
     allow_productivity = true,
-    ingredients = (mods["bzlead"] and not mods["angelssmelting"] and {
+    ingredients = {
       {type= "item", name="silicon-wafer", amount=1},
       {type= "item", name="electronic-circuit", amount=1},
-      {type= "item", name="lead-plate", amount=1},
-    } or {
-      {type= "item", name="silicon-wafer", amount=1},
-      {type= "item", name="electronic-circuit", amount=1},
-    }),
+    },
     results = {util.item("solar-cell", 2)}
   },
 })

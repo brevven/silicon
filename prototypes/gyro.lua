@@ -15,7 +15,7 @@ end
 if mods.bztungsten and not mods["space-age"] then
   table.insert(gyro_ingredients, util.item("tungsten-plate", 1))
   table.insert(gyro_prereqs, "tungsten-processing")
-elseif mods.bztitanium then
+elseif mods.bztitanium and data.raw.item["titanium-plate"] then
   table.insert(gyro_ingredients, util.item("titanium-plate", 1))
   table.insert(gyro_prereqs, "titanium-processing")
 elseif mods.Krastorio2 then

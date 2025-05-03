@@ -1,6 +1,6 @@
 {
     "name": "bzsilicon",
-    "version": "2.0.13",
+    "version": "2.0.14",
     "factorio_version": "2.0",
     "title": "Silica & Silicon",
     "author": "Brevven",
@@ -13,6 +13,7 @@
       "? 248k",
       "? aai-industry",
       "? modmashsplinterelectronics",
+      "? bztitanium",
       "(?) IndustrialRevolution",
 	    "base"
     ],

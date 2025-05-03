@@ -68,6 +68,7 @@ if data.raw.item["silicone"] then
   end
 end
 
+util.add_ingredient("solar-cell", "lead-plate", 1)
 
 if not mods["Krastorio2"] then
   util.remove_ingredient("concrete", "stone-brick");
