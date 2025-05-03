@@ -514,7 +514,7 @@ end
 
 -- k2 matter 
 -- params: {k2matter}, k2baseicon , {icon}
-function util.k2matter(params, only_deconversion)
+function util.k2matter(params)
   local matter = require("__Krastorio2__/prototypes/libraries/matter")
   if mods["space-exploration"] then 
     params.k2matter.needs_stabilizer = true
@@ -561,15 +561,16 @@ function util.k2matter(params, only_deconversion)
               {
                 {"production-science-pack", 1},
                 {"utility-science-pack", 1},
-                {"matter-tech-card", 1}
+                {"kr-matter-tech-card", 1}
               },
               time = 45,
             },
+            effects = {}
             -- (ignore for now) localised_name = {"technology-name.k2-conversion", {"item-name."..params.k2matter.item_name}},
           },
         })
   end
-  if only_deconversion then
+  if params.k2matter.only_deconversion and params.k2matter.only_deconversion == true then
     matter.make_deconversion_recipe(params.k2matter)
   else
     matter.make_recipes(params.k2matter)
