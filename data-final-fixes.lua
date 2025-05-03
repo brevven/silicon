@@ -44,4 +44,8 @@ if util.me.use_gyros() then
   util.add_ingredient("flying-robot-frame", "gyro", 1)
 end
 
+if mods["atan-ash"] and data.raw.item["razorgrass-dried"] then
+  data.raw.item["razorgrass-dried"].burnt_result = "razorgrass-ash"
+end
+
 util.size_recycler_output()
