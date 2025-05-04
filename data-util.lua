@@ -116,11 +116,8 @@ function util.fe_plus(sub)
 end
 
 function util.get_stack_size(default) 
-  if mods.Krastorio2 then
-    local size = get_setting("kr-stack-size")
-    if size and tonumber(size) then
-      return tonumber(size)
-    end
+  if mods.Krastorio2 and kr_adjust_stack_sizes then
+    return tonumber(200)
   end
   return default
 end
@@ -549,19 +546,19 @@ function util.k2matter(params, only_deconversion)
               count = 350,
               ingredients = mods["space-exploration"] and 
               {
-                {"automation-science-pack", 1},
-                {"logistic-science-pack", 1},
-                {"chemical-science-pack", 1},
-                {"se-astronomic-science-pack-4", 1},
-                {"se-energy-science-pack-4", 1},
-                {"se-material-science-pack-4", 1},
-                {"se-deep-space-science-pack-2", 1},
-                {"se-kr-matter-science-pack-2", 1},
+                {type = "item", name = "automation-science-pack", amount = 1},
+                {type = "item", name = "logistic-science-pack", amount = 1},
+                {type = "item", name = "chemical-science-pack", amount = 1},
+                {type = "item", name = "se-astronomic-science-pack-4", amount = 1},
+                {type = "item", name = "se-energy-science-pack-4", amount = 1},
+                {type = "item", name = "se-material-science-pack-4", amount = 1},
+                {type = "item", name = "se-deep-space-science-pack-2", amount = 1},
+                {type = "item", name = "se-kr-matter-science-pack-2", amount = 1},
               } or
               {
-                {"production-science-pack", 1},
-                {"utility-science-pack", 1},
-                {"matter-tech-card", 1}
+                {type = "item", name = "production-science-pack", amount = 1},
+                {type = "item", name = "utility-science-pack", amount = 1},
+                {type = "item", name = "kr-matter-tech-card", amount = 1}
               },
               time = 45,
             },

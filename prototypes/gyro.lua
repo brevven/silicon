@@ -5,7 +5,7 @@ if util.me.use_gyros() then
 gyro_ingredients = {  -- outputs 4
   util.item("copper-cable", 2),
   util.item("silica", 1),
-  util.item("silicon", 4)}
+  util.item(mods["Krastorio2"] and "kr-silicon" or "silicon", 4)}
 
 gyro_prereqs = {util.me.silicon_processing}
 if mods.bzcarbon then
@@ -19,7 +19,7 @@ elseif mods.bztitanium and data.raw.item["titanium-plate"] then
   table.insert(gyro_ingredients, util.item("titanium-plate", 1))
   table.insert(gyro_prereqs, "titanium-processing")
 elseif mods.Krastorio2 then
-  table.insert(gyro_ingredients, util.item("rare-metals", 1))
+  table.insert(gyro_ingredients, util.item("kr-rare-metals", 1))
 end
 
 

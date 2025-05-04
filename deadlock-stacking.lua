@@ -5,7 +5,7 @@ if deadlock and deadlock["add_stack"] then
   deadlock.add_stack("silica", "__bzsilicon__/graphics/icons/stacked/silica-stacked.png" , "deadlock-stacking-1", 64)
   deadlock.add_stack("optical-fiber", "__bzsilicon__/graphics/icons/stacked/optical-fiber-stacked.png" , "deadlock-stacking-2", 64)
   if not mods["Krastorio2"] then
-    deadlock.add_stack("silicon", "__bzsilicon__/graphics/icons/stacked/silicon-stacked.png" , "deadlock-stacking-2", 64)
+    deadlock.add_stack("kr-silicon", "__bzsilicon__/graphics/icons/stacked/silicon-stacked.png" , "deadlock-stacking-2", 64)
   end
   if util.me.more_intermediates() then
     deadlock.add_stack("silicon-wafer", "__bzsilicon__/graphics/icons/stacked/silicon-wafer-stacked.png" , "deadlock-stacking-2", 64)
@@ -21,7 +21,7 @@ if deadlock_crating then
   deadlock_crating.add_crate("silica", "deadlock-crating-1")
   deadlock_crating.add_crate("optical-fiber", "deadlock-crating-2")
   if not mods["Krastorio2"] then
-    deadlock_crating.add_crate("silicon", "deadlock-crating-2")
+    deadlock_crating.add_crate("kr-silicon", "deadlock-crating-2")
   end
   if util.me.more_intermediates() then
     deadlock_crating.add_crate("silicon-wafer", "deadlock-crating-2")

@@ -5,7 +5,7 @@ if mods["Krastorio2"] then
   util.remove_raw("recipe", "silicon-2")
   util.remove_recipe_effect("kr-silicon-processing", "silicon-2")
   if mods["Sebs-Electrics"] then
-    util.add_unlock("kr-silicon-processing", "silicon")
+    util.add_unlock("kr-silicon-processing", "kr-silicon")
   end
 end
 local prerequisites = {}
@@ -120,8 +120,8 @@ data:extend({
     energy_required = 2,
     allow_productivity = true,
     ingredients = (mods["Krastorio2"] and {
-      {type= "item", name="silicon", amount=2},
-      {type= "fluid", name="hydrogen-chloride", amount=5},
+      {type= "item", name="kr-silicon", amount=2},
+      {type= "fluid", name="kr-hydrogen-chloride", amount=5},
     } or {
       {type= "item", name="silicon", amount=2},
       {type= "fluid", name="sulfuric-acid", amount=5},
@@ -149,7 +149,7 @@ data:extend({
     energy_required = 10,
     allow_productivity = true,
     ingredients = {
-      {type= "item", name="silicon", amount=10},
+      {type= "item", name= mods["Krastorio2"] and "kr-silicon" or "silicon", amount=10},
       {type= "item", name="copper-plate", amount=1},
       {type= "fluid", name="water", amount=20},
     },
