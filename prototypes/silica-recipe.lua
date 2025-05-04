@@ -3,7 +3,7 @@ local util = require("__bzsilicon__.data-util");
 local item_sounds = require('__base__.prototypes.item_sounds')
 data:extend(
 {
-  mods["Krastorio2"] and {
+  util.k2() and {
     type = "recipe",
     name = "silica",
     category = "kr-crushing",
@@ -71,7 +71,7 @@ data:extend(
     stack_size = util.get_stack_size(100),
     weight = 0.2*kg,
   },
-  mods["Krastorio2"] and {
+  util.k2() and {
     type = "technology",
     name = "silica-processing",
     icon_size = 256, icon_mipmaps = 4,

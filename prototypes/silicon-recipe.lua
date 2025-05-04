@@ -1,9 +1,10 @@
 -- Silicon
 local util = require("data-util");
 local item_sounds = require('__base__.prototypes.item_sounds')
-if mods["Krastorio2"] then
-  util.remove_raw("recipe", "silicon-2")
-  util.remove_recipe_effect("kr-silicon-processing", "silicon-2")
+local silicon = util.k2() and "kr-silicon" or "silicon"
+if util.k2() then
+  util.remove_raw("recipe", "kr-silicon")
+  util.remove_recipe_effect("kr-silicon-processing", "kr-silicon")
   if mods["Sebs-Electrics"] then
     util.add_unlock("kr-silicon-processing", "silicon")
   end
@@ -18,7 +19,7 @@ end
 
 data:extend(
 {
-  mods["Krastorio2"] and {
+  util.k2() and {
     type = "recipe",
     name = "kr-silicon",
     category = "smelting",
@@ -49,7 +50,7 @@ data:extend(
     -- },
     
   },
-  (not mods["Krastorio2"]) and 
+  (not util.k2()) and 
   {
     type = "item",
     name = "silicon",
@@ -63,7 +64,7 @@ data:extend(
     stack_size = util.get_stack_size(100),
     weight = 1*kg,
   } or nil,
-  (not mods["Krastorio2"]) and 
+  (not util.k2()) and 
   {
     type = "technology",
     name = "silicon-processing",
@@ -119,9 +120,9 @@ data:extend({
     enabled = false,
     energy_required = 2,
     allow_productivity = true,
-    ingredients = (mods["Krastorio2"] and {
-      {type= "item", name="silicon", amount=2},
-      {type= "fluid", name="hydrogen-chloride", amount=5},
+    ingredients = (util.k2() and {
+      {type= "item", name="kr-silicon", amount=2},
+      {type= "fluid", name="kr-hydrogen-chloride", amount=5},
     } or {
       {type= "item", name="silicon", amount=2},
       {type= "fluid", name="sulfuric-acid", amount=5},
@@ -149,7 +150,7 @@ data:extend({
     energy_required = 10,
     allow_productivity = true,
     ingredients = {
-      {type= "item", name="silicon", amount=10},
+      {type= "item", name=silicon, amount=10},
       {type= "item", name="copper-plate", amount=1},
       {type= "fluid", name="water", amount=20},
     },
@@ -195,7 +196,7 @@ data:extend({
     energy_required = 2,
     allow_productivity = true,
     ingredients = {
-     util.item("silicon", 1),
+     util.item(silicon, 1),
     },
     results = {util.item("silicon-wafer", 1)}
   },
@@ -208,6 +209,8 @@ if not mods["space-age"] then
 end
 end
 util.add_effect("kr-fluids-chemistry", {type="unlock-recipe", recipe="hydrogen-chloride"})
+util.add_unlock("kr-silicon-processing", "silicon")
+
 
 if util.me.more_intermediates() and not mods["space-age"] then
   util.add_unlock("advanced-circuit", "silicon-wafer")

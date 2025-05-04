@@ -1,6 +1,7 @@
 local util = require("data-util");
 
-local si = util.me.more_intermediates() and "silicon-wafer" or "silicon"
+local silicon = util.k2() and "kr-silicon" or "silicon"
+local si = util.me.more_intermediates() and "silicon-wafer" or silicon
 
 if util.me.use_gyros() then
   util.add_ingredient("flying-robot-frame", "gyro", 1)
@@ -70,7 +71,7 @@ end
 
 util.add_ingredient("solar-cell", "lead-plate", 1)
 
-if not mods["Krastorio2"] then
+if not util.k2() then
   util.remove_ingredient("concrete", "stone-brick");
   if mods["Bio_Industries"] or mods["omnimatter"] then
     util.add_ingredient("concrete", "stone-brick", 3);
@@ -115,21 +116,21 @@ if not mods["Krastorio2"] then
     util.add_prerequisite("advanced-circuit", util.me.silicon_processing)
 
   else
-    util.replace_some_ingredient("solar-panel", "electronic-circuit", 10, "silicon", 10)
+    util.replace_some_ingredient("solar-panel", "electronic-circuit", 10, silicon, 10)
 
-    util.replace_some_ingredient("processing-unit", "electronic-circuit", 10, "silicon", 6)
+    util.replace_some_ingredient("processing-unit", "electronic-circuit", 10, silicon, 6)
 
     util.remove_ingredient("efficiency-module", "electronic-circuit")
-    util.add_ingredient("efficiency-module", "silicon", 3)
+    util.add_ingredient("efficiency-module", silicon, 3)
     util.remove_ingredient("quality-module", "electronic-circuit")
-    util.add_ingredient("quality-module", "silicon", 3)
+    util.add_ingredient("quality-module", silicon, 3)
     util.remove_ingredient("productivity-module", "electronic-circuit")
-    util.add_ingredient("productivity-module", "silicon", 3)
+    util.add_ingredient("productivity-module", silicon, 3)
     util.remove_ingredient("speed-module", "electronic-circuit")
-    util.add_ingredient("speed-module", "silicon", 3)
+    util.add_ingredient("speed-module", silicon, 3)
 
     if not mods.modmashsplinterelectonics then
-      util.replace_some_ingredient("advanced-circuit", "electronic-circuit", 1, "silicon", 1)
+      util.replace_some_ingredient("advanced-circuit", "electronic-circuit", 1, silicon, 1)
     end
     util.add_prerequisite("advanced-circuit", util.me.silicon_processing)
   end
@@ -155,9 +156,9 @@ local useful_combinators = {"timer-combinator", "counting-combinator", "random-c
  "statistic-combinator", "pollution-combinator", "emitter-combinator", "receiver-combinator"}
 
 util.replace_ingredient("green-wire", "copper-cable", "optical-fiber")
-util.replace_ingredient("green-wire", "electronic-circuit", "silicon")
+util.replace_ingredient("green-wire", "electronic-circuit", silicon)
 util.replace_ingredient("red-wire", "copper-cable", "optical-fiber")
-util.replace_ingredient("red-wire", "electronic-circuit", "silicon")
+util.replace_ingredient("red-wire", "electronic-circuit", silicon)
 
 if not mods["IndustrialRevolution"] then
   util.add_ingredient("arithmetic-combinator", si, 1)
@@ -214,22 +215,22 @@ util.replace_some_ingredient("transport-depot-writer", "electronic-circuit", 5, 
 util.add_prerequisite("circuit-network", "fiber-optics")
 util.add_prerequisite("circuit-network", util.me.silicon_processing)
 
-if mods["Krastorio2"] then
-  util.add_ingredient("biusart-lab", "optical-fiber", 10)
-  util.add_ingredient("ai-core", "optical-fiber", 2)
+if util.k2() then
+  util.add_ingredient("kr-advanced-lab", "optical-fiber", 10)
+  util.add_ingredient("kr-ai-core", "optical-fiber", 2)
 
   util.add_prerequisite(util.me.silicon_processing, "silica-processing")
 
   if util.me.more_intermediates() then 
     util.add_effect(util.me.silicon_processing, {type = "unlock-recipe", recipe="silicon-wafer"})
-    util.remove_ingredient("electronic-components", "silicon")
-    util.add_ingredient("electronic-components", "silicon-wafer", 1)
-    util.multiply_recipe("electronic-components-lithium", 2)
-    util.remove_ingredient("electronic-components-lithium", "silicon")
-    util.add_ingredient("electronic-components-lithium", "silicon-wafer", 3)
+    util.remove_ingredient("kr-electronic-components", silicon)
+    util.add_ingredient("kr-electronic-components", "silicon-wafer", 2)
+    util.multiply_recipe("kr-electronic-components-with-lithium", 2)
+    util.remove_ingredient("kr-electronic-components-with-lithium", silicon)
+    util.add_ingredient("kr-electronic-components-with-lithium", "silicon-wafer", 6)
 
     util.replace_ingredient("solar-panel", "electronic-circuit", "solar-cell")
-    util.remove_ingredient("solar-panel", "silicon")
+    util.remove_ingredient("solar-panel", silicon)
     util.replace_ingredient("solar-panel-equipment", "solar-panel", "solar-cell")
     util.add_effect("solar-energy", {type = "unlock-recipe", recipe="solar-cell"})
   end

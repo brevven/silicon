@@ -1,5 +1,5 @@
-if mods["Krastorio2"] then
-  local util = require("data-util");
+local util = require("data-util");
+if util.k2() then
   util.k2matter({
     k2matter = {
       material = {

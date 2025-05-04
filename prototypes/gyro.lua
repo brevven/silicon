@@ -2,10 +2,11 @@ local util = require("data-util");
 local item_sounds = require('__base__.prototypes.item_sounds')
 
 if util.me.use_gyros() then
+local silicon = util.k2() and "kr-silicon" or "silicon"
 gyro_ingredients = {  -- outputs 4
   util.item("copper-cable", 2),
   util.item("silica", 1),
-  util.item("silicon", 4)}
+  util.item(silicon, 4)}
 
 gyro_prereqs = {util.me.silicon_processing}
 if mods.bzcarbon then
@@ -18,7 +19,7 @@ if mods.bztungsten and not mods["space-age"] then
 elseif mods.bztitanium and data.raw.item["titanium-plate"] then
   table.insert(gyro_ingredients, util.item("titanium-plate", 1))
   table.insert(gyro_prereqs, "titanium-processing")
-elseif mods.Krastorio2 then
+elseif util.k2() then
   table.insert(gyro_ingredients, util.item("rare-metals", 1))
 end
 
