@@ -525,9 +525,6 @@ function util.k2matter(params)
   if mods["space-exploration"] then 
     params.k2matter.needs_stabilizer = true
   end
-  if not params.k2matter.material.amount then
-    params.k2matter.material.amount = 10
-  end
   if not data.raw.technology[params.k2matter.unlocked_by] then
     local icon = ""
     if params.k2baseicon then
@@ -687,7 +684,7 @@ function util.se_matter(params)
                 {"se-astronomic-science-pack-4", 1},
                 {"se-energy-science-pack-4", 1},
                 {"se-material-science-pack-4", 1},
-                {"matter-tech-card", 1},
+                {"kr-matter-tech-card", 1},
                 {"se-deep-space-science-pack-1", 1},
               }
               
@@ -1899,12 +1896,14 @@ function util.redo_recycling()
     -- Find all recycling recipes that result in armor and make sure not to output more than 1
     for _, recipe in pairs(data.raw.recipe) do
       if recipe.name:find("recycling") then
-        for _, product in pairs(recipe.results) do
-          if data.raw.armor[product.name] then
-            if product.amount then
-              if product.amount > .99 then 
-                product.amount = 1 
-                product.extra_count_fraction = nil
+        if recipe.results then
+          for _, product in pairs(recipe.results) do
+            if data.raw.armor[product.name] then
+              if product.amount then
+                if product.amount > .99 then
+                  product.amount = 1
+                  product.extra_count_fraction = nil
+                end
               end
             end
           end
