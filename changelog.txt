@@ -1,4 +1,10 @@
 ---------------------------------------------------------------------------------------------------
+Version: 2.0.16
+Date: 2025-06-15
+  Fixes:
+    - Krastorio2 & Spaced Out: Fix soft lock on circuits introduced in 2.0 updates
+    - Fix load error with certain loadouts, especially with K2SO
+---------------------------------------------------------------------------------------------------
 Version: 2.0.15
 Date: 2025-05-04
   Changes:

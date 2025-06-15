@@ -20,7 +20,7 @@ elseif mods.bztitanium and data.raw.item["titanium-plate"] then
   table.insert(gyro_ingredients, util.item("titanium-plate", 1))
   table.insert(gyro_prereqs, "titanium-processing")
 elseif util.k2() then
-  table.insert(gyro_ingredients, util.item("rare-metals", 1))
+  table.insert(gyro_ingredients, util.item("kr-rare-metals", 1))
 end
 
 

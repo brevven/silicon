@@ -208,7 +208,7 @@ if not mods["space-age"] then
   util.add_unlock("silicon-processing", "silicone")
 end
 end
-util.add_effect("kr-fluids-chemistry", {type="unlock-recipe", recipe="hydrogen-chloride"})
+util.add_effect("kr-fluids-chemistry", {type="unlock-recipe", recipe="kr-hydrogen-chloride"})
 util.add_unlock("kr-silicon-processing", "silicon")
 
 
