@@ -6,7 +6,7 @@ if util.k2() then
   util.remove_raw("recipe", "kr-silicon")
   util.remove_recipe_effect("kr-silicon-processing", "kr-silicon")
   if mods["Sebs-Electrics"] then
-    util.add_unlock("kr-silicon-processing", "silicon")
+    util.add_unlock("kr-silicon-processing", "kr-silicon")
   end
 end
 local prerequisites = {}
@@ -40,15 +40,6 @@ data:extend(
     allow_productivity = true,
     ingredients = {util.item("silica", 10)},
     results = {util.item("silicon", 1)}
-    -- expensive =
-    -- {
-    --   enabled = false,
-    --   energy_required = 3.2,
-    --   ingredients = {{"silica", 10}},
-    --   result = "silicon",
-    --   result_count = 1
-    -- },
-    
   },
   (not util.k2()) and 
   {
@@ -209,7 +200,7 @@ if not mods["space-age"] then
 end
 end
 util.add_effect("kr-fluids-chemistry", {type="unlock-recipe", recipe="kr-hydrogen-chloride"})
-util.add_unlock("kr-silicon-processing", "silicon")
+util.add_unlock("kr-silicon-processing", mods.Krastorio2 and "kr-silicon" or "silicon")
 
 
 if util.me.more_intermediates() and not mods["space-age"] then

@@ -140,7 +140,7 @@ if not util.k2() then
 else
   util.add_ingredient("concrete", "silica", 15);
   if not mods["aai-industry"] then
-    util.add_ingredient("concrete", "sand", 10);
+    util.add_ingredient("concrete", "kr-sand", 10);
   end
 end
 
@@ -280,11 +280,12 @@ end
 
 -- Sand in crusher. If sand comes from stone, silica comes from sand
 if mods["space-age"] then
-  if data.raw.item["sand"] and data.raw.recipe["sand"] and #data.raw.recipe["sand"].ingredients == 1 then
-    data.raw.recipe["sand"].category = "basic-crushing"
+  local sand = mods["Krastorio2"] and "kr-sand" or "sand"
+  if data.raw.item[sand] and data.raw.recipe[sand] and #data.raw.recipe[sand].ingredients == 1 then
+    data.raw.recipe[sand].category = "basic-crushing"
     log(serpent.block(data.raw.recipe.sand))
     if data.raw.recipe.sand.ingredients[1].name == "stone" then
-      util.replace_ingredient("silica", "stone", "sand", 1)
+      util.replace_ingredient("silica", "stone", sand, 1)
       util.set_product_amount("silica", "silica", 1)
       util.set_recipe_time("silica", 0.5)
     end

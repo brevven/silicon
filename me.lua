@@ -10,11 +10,11 @@ end
 
 function me.more_intermediates()
   if me.get_setting("bz-all-intermediates") then return true end
-  return mods["Bio_Industries"] or me.get_setting("bzsilicon-more-intermediates") == "yes"
+  return mods["Bio_Industries_2"] or me.get_setting("bzsilicon-more-intermediates") == "yes"
 end
 
 function me.use_bio_crushed_stone()
-  return mods["Bio_Industries"] and me.get_setting("bzsilicon-bio-crushed-stone") == true
+  return mods["Bio_Industries_2"] and me.get_setting("bzsilicon-bio-crushed-stone") == true
 end
 
 function me.get_setting(name)
